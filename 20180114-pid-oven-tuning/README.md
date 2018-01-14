@@ -107,3 +107,15 @@ input:
 output:
 
 ![](run9-output.png)
+
+## run 10, kp: 5.0, ki: 0.0, kd: 0.0
+
+dropping kp to 5.
+
+input:
+
+![](run10-input.png)
+
+output:
+
+![](run10-output.png)
