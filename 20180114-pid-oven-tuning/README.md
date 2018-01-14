@@ -155,3 +155,15 @@ input:
 output:
 
 ![](run13-output.png)
+
+## run 14, kp: 6.0, ki: 0.0, kd: 1.0
+
+dropping kp to 6.0.
+
+input:
+
+![](run14-input.png)
+
+output:
+
+![](run14-output.png)
