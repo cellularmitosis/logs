@@ -60,3 +60,15 @@ output:
 
 ![](run5-output.png)
 
+## run 6, kp: 4.0, ki: 0.0, kd: 0.0
+
+bumping kp to 4.0.
+
+input:
+
+![](run6-input.png)
+
+output:
+
+![](run6-output.png)
+
