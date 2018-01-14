@@ -48,3 +48,15 @@ output:
 
 ![](run4-output.png)
 
+## run 5, kp: 3.0, ki: 0.0, kd: 0.0
+
+just using kp (3.0).
+
+input:
+
+![](run5-input.png)
+
+output:
+
+![](run5-output.png)
+
