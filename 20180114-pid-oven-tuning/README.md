@@ -223,3 +223,27 @@ input:
 output:
 
 ![](run18-output.png)
+
+## run 19, kp: 7.0, ki: 0.5, kd: 0.75
+
+bumping kd to 0.75.
+
+input:
+
+![](run19-input.png)
+
+output:
+
+![](run19-output.png)
+
+## run 20, kp: 7.0, ki: 0.75, kd: 0.75
+
+bumping ki to 0.75.
+
+input:
+
+![](run20-input.png)
+
+output:
+
+![](run20-output.png)
