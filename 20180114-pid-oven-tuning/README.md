@@ -119,3 +119,15 @@ input:
 output:
 
 ![](run10-output.png)
+
+## run 11, kp: 5.0, ki: 0.0, kd: 1.0
+
+adding kd of 1.0.
+
+input:
+
+![](run11-input.png)
+
+output:
+
+![](run11-output.png)
