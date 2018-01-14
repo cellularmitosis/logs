@@ -191,3 +191,35 @@ input:
 output:
 
 ![](run16-output.png)
+
+## run 17, kp: 7.0, ki: 0.5, kd: 1.0
+
+Switching AREF from 3.3V to 5.0V.
+
+I had implemented a heavy filter on the 3.3V line before it reached AREF and the thermistor: a large ferrite bead followed by a 1uF film cap to ground, then the 10k fixed resistor and 0.1uF film cap to ground, then the thermistor (to ground).
+
+In each of the above graphs, you can see the stair-step at the end of the graph (in the cool-down phase).  This corresponds to individual LSB's of the ADC, and this can be a consquence of removing too much noise from the system.  I am implementing 64x oversampling in software, so with a bit of white noise, you should be able to achieve higher resolution from the ADC (for a slow-moving signal).
+
+The 3.3V pin on the Arduino is already somewhat more filtered than the 5.0V pin, which is notorious for containing noise from the USB connection.  I am curious if switching to the 5.0V pin for AREF will give me enough noise to get better ADC resolution.
+
+input:
+
+![](run17-input.png)
+
+output:
+
+![](run17-output.png)
+
+Looks like it worked exactly as expected!
+
+## run 18, kp: 7.0, ki: 0.5, kd: 0.5
+
+reducing kd to 0.5.  let's see if we can get the output noise down.
+
+input:
+
+![](run18-input.png)
+
+output:
+
+![](run18-output.png)
