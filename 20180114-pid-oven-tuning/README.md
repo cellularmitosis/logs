@@ -143,3 +143,15 @@ input:
 output:
 
 ![](run12-output.png)
+
+## run 13, kp: 8.0, ki: 0.0, kd: 1.0
+
+dropping kd to 1.0, bumping kp to 8.0.
+
+input:
+
+![](run13-input.png)
+
+output:
+
+![](run13-output.png)
