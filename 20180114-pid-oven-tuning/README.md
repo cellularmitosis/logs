@@ -72,9 +72,9 @@ output:
 
 ![](run6-output.png)
 
-## run 7, kp: 8.0, ki: 0.0, kd: 0.0
+## run 7, kp: 4.0, ki: 0.0, kd: 0.0
 
-bumping kp to 8.0.
+oops, accidentally repeated the same settings.  the repeatability is very good!
 
 input:
 
@@ -83,3 +83,15 @@ input:
 output:
 
 ![](run7-output.png)
+
+## run 8, kp: 8.0, ki: 0.0, kd: 0.0
+
+bumping kp to 8.
+
+input:
+
+![](run8-input.png)
+
+output:
+
+![](run8-output.png)
