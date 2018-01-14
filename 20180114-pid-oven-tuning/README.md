@@ -179,3 +179,15 @@ input:
 output:
 
 ![](run15-output.png)
+
+## run 16, kp: 7.0, ki: 0.5, kd: 1.0
+
+adding ki of 0.5.
+
+input:
+
+![](run16-input.png)
+
+output:
+
+![](run16-output.png)
