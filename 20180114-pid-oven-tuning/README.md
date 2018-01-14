@@ -22,4 +22,15 @@ output:
 
 ![](run2-output.png)
 
+## run 3, kp: 2.0, ki: 2.0, kd: 0.5
+
+increase ki from 1.0 to 2.0
+
+input:
+
+![](run3-input.png)
+
+output:
+
+![](run3-output.png)
 
