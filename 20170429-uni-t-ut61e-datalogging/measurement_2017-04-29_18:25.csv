@@ -1,0 +1,16 @@
+timestamp;value;unit;mode;current;operation;peak;battery_low;relative;hold
+2017-04-29 18:28:26.336657;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:26.836659;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:27.336626;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:27.836632;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:28.336696;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:28.836707;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:29.336717;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:29.836681;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:30.336693;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:30.836702;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:31.336710;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:31.836721;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:32.336875;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:32.836830;0.0;V;voltage;AC;normal;;0;0;0
+2017-04-29 18:28:33.336830;0.0;V;voltage;AC;normal;;0;0;0

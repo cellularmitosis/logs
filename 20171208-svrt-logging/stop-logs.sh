@@ -1,0 +1,1 @@
+../plotting-scripts/stop-logs.sh

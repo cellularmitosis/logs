@@ -1,0 +1,5 @@
+I thought I'd start a thread the LTC2400 series of ADC's from Linear Tech.
+
+In this thread I'll link to other posts in this forum in which the LTC2400 parts or circuits are discussed, I'll post my own "getting started" experience, and I'll encourage others to discuss and share their LTC2400 knowledge and projects.
+
+

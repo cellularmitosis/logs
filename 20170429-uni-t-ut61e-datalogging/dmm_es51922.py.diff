@@ -1,0 +1,18 @@
+--- dmm_es51922.py.orig	2017-04-29 15:41:35.233973757 -0500
++++ dmm_es51922.py	2017-04-29 15:42:18.135324129 -0500
+@@ -1,3 +1,4 @@
++#!/usr/bin/env python
+ # -*- coding: utf-8 -*-
+ """
+ Utility for parsing data from multimeters based on Cyrustek ES51922 chipset.
+@@ -410,8 +411,8 @@
+     # exit if the port is not opened
+     except serial.SerialException, e:
+         sys.exit(e)
+-    ser.setDTR(level=True)
+-    ser.setRTS(level=False)
++    ser.dtr = True
++    ser.rts = False
+     output_file = None
+     if args.mode == 'csv':
+         timestamp = datetime.datetime.now()
