@@ -72,3 +72,14 @@ output:
 
 ![](run6-output.png)
 
+## run 7, kp: 8.0, ki: 0.0, kd: 0.0
+
+bumping kp to 8.0.
+
+input:
+
+![](run7-input.png)
+
+output:
+
+![](run7-output.png)
