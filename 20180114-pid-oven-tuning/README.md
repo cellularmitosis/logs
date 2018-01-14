@@ -131,3 +131,15 @@ input:
 output:
 
 ![](run11-output.png)
+
+## run 12, kp: 5.0, ki: 0.0, kd: 2.0
+
+bumping kd to 2.0.
+
+input:
+
+![](run12-input.png)
+
+output:
+
+![](run12-output.png)
