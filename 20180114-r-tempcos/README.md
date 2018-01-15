@@ -1,4 +1,4 @@
-these initial tests were done using an AE XT 10K000 metal foil resistor purchased from ebay seller juliakingking.
+these initial 5 tests were done using an AE XT 10K000 metal foil resistor purchased from ebay seller juliakingking.
 
 ## run 1
 
@@ -28,11 +28,15 @@ additionally, I'll try running at 26 degrees for a run-in period silently, to av
 
 ![](run4/tempco.png)
 
-## run 5
+## run 5: AE XT 10K000
 
 trying a more extended run (26C to 36C), and reworking graph to show ppm deviation instead of raw resistance value.
 
 ![](run5/tempco.png)
 
-OK!  Finally a decent looking result.  It looks like the resistor deviated about 12ppm over 10C, so room-temperature tempco is about 1.2ppm/K.
+OK!  Finally a decent looking result.  It looks like the resistor deviated about 12ppm over 10C, so room-temperature tempco is about 1.2ppm/K.  This was an AE XT 10K000 metal foil resistor purchased from ebay seller juliakingking.
+
+## run 6: 5% carbon film 10k
+
+Just for giggles, let's test a 5% carbon film from the junk bin.  This was from the first set of resistors I ever purchased -- a combo kit from Jameco (https://www.jameco.com/z/00081832-540-Piece-1-4-Watt-5-Carbon-Film-Resistor-Component-Kit_81832.html).
 

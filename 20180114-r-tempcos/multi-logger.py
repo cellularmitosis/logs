@@ -44,25 +44,30 @@ if __name__ == "__main__":
         hp34401a.readline()
         now = time.time()
 
-    last_hp_value = None
-
     oven_out = open("oven-controller.csv", "w")
     tempco_out = open("tempco.csv", "w")
     tempco_out.write("temp_c,ppm,resistance\n")
     tempco_out.flush()
 
+    last_hp_value = None
     last_arduino_time = None
+
+    # store up the first 5 values to average as the base_r to calculate ppm.
     base_r = None
+    base_r_5 = []
 
     while True:
         if hp34401a.inWaiting():
             last_hp_value = float(hp34401a.readline().rstrip())
             if base_r is None:
-                base_r = last_hp_value
+                if len(base_r_5) < 5:
+                    base_r_5.append(last_hp_value)
+                else:
+                    base_r = sum(base_r_5) / 5.0
         elif arduino.inWaiting():
             last_arduino_time = time.time()
-            if last_hp_value:
-                line = arduino.readline()
+            line = arduino.readline()
+            if last_hp_value and base_r:
                 oven_out.write(line)
                 oven_out.flush()
 
@@ -71,6 +76,7 @@ if __name__ == "__main__":
                 tempco_out.write("%s,%0.2f,%s\n" % (c, ppm, last_hp_value))
                 tempco_out.flush()
         else:
+            # when the Arduino stops sptting out values, the run is over.
             if last_arduino_time is not None and time.time() - last_arduino_time > 1.0:
                 oven_out.close()
                 tempco_out.close()
