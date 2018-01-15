@@ -44,27 +44,32 @@ if __name__ == "__main__":
         hp34401a.readline()
         now = time.time()
 
-    last_arduino_line = None
+    last_hp_value = None
 
     oven_out = open("oven-controller.csv", "w")
     tempco_out = open("tempco.csv", "w")
     tempco_out.write("resistance,temp_c\n")
     tempco_out.flush()
 
+    last_arduino_time = None
+
     while True:
-        if arduino.inWaiting():
-            line = arduino.readline()
-            oven_out.write(line)
-            oven_out.flush()
-            last_arduino_line = line
         if hp34401a.inWaiting():
-            if last_arduino_line is None:
+            last_hp_value = float(hp34401a.readline().rstrip())
+        elif arduino.inWaiting():
+            last_arduino_time = time.time()
+            if last_hp_value:
+                line = arduino.readline()
+                oven_out.write(line)
+                oven_out.flush()
+
+                c = float(line.rstrip().split(",")[1])
+                tempco_out.write("%s,%s\n" % (last_hp_value, c))
+                tempco_out.flush()
+        else:
+            if last_arduino_time is not None and time.time() - last_arduino_time > 1.0:
                 oven_out.close()
                 tempco_out.close()
                 sys.exit(0)
-            hp = hp34401a.readline().rstrip()
-            r = float(hp)
-            c = float(last_arduino_line.rstrip().split(",")[1])
-            tempco_out.write("%s,%s\n" % (r, c))
-            tempco_out.flush()
-            last_arduino_line = None
+
+            time.sleep(0.01)
