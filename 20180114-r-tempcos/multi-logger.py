@@ -48,14 +48,17 @@ if __name__ == "__main__":
 
     oven_out = open("oven-controller.csv", "w")
     tempco_out = open("tempco.csv", "w")
-    tempco_out.write("resistance,temp_c\n")
+    tempco_out.write("temp_c,ppm,resistance\n")
     tempco_out.flush()
 
     last_arduino_time = None
+    base_r = None
 
     while True:
         if hp34401a.inWaiting():
             last_hp_value = float(hp34401a.readline().rstrip())
+            if base_r is None:
+                base_r = last_hp_value
         elif arduino.inWaiting():
             last_arduino_time = time.time()
             if last_hp_value:
@@ -64,7 +67,8 @@ if __name__ == "__main__":
                 oven_out.flush()
 
                 c = float(line.rstrip().split(",")[1])
-                tempco_out.write("%s,%s\n" % (last_hp_value, c))
+                ppm = (last_hp_value - base_r) / base_r * 1000000.0
+                tempco_out.write("%s,%0.2f,%s\n" % (c, ppm, last_hp_value))
                 tempco_out.flush()
         else:
             if last_arduino_time is not None and time.time() - last_arduino_time > 1.0:
