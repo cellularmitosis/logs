@@ -17,6 +17,7 @@ double heat_kd = 0.75;
 double upper_limit = 255.0;
 double lower_limit = 0.0;
 
+// Note:
 double setpoint;
 
 double input;
@@ -340,12 +341,23 @@ void program1_setup() {
   start = millis();
 }
 
+bool done = false;
+
 void program1_set_c() {
+  uint32_t interval = 90000;
   uint32_t now = millis();
-  if ((now - start) >= (4 * 60 * 1000ul)) { while(1) { delay(1); } }
-  if ((now - start) >= (3 * 60 * 1000ul)) { setpoint = thermistor_c_to_adc(26.0); return; }
-  if ((now - start) >= (2 * 60 * 1000ul)) { setpoint = thermistor_c_to_adc(28.0); return; }
-  if ((now - start) >= (1 * 60 * 1000ul)) { setpoint = thermistor_c_to_adc(27.0); return; }
+  if ((now - start) >= (10 * interval)) { done = true; }
+  if ((now - start) >= (5 * interval)) { setpoint = thermistor_c_to_adc(26.0); return; }
+//  if ((now - start) >= (10 * interval)) { setpoint = thermistor_c_to_adc(36.0); return; }
+//  if ((now - start) >= (9 * interval)) { setpoint = thermistor_c_to_adc(35.0); return; }
+//  if ((now - start) >= (8 * interval)) { setpoint = thermistor_c_to_adc(34.0); return; }
+//  if ((now - start) >= (7 * interval)) { setpoint = thermistor_c_to_adc(33.0); return; }
+//  if ((now - start) >= (6 * interval)) { setpoint = thermistor_c_to_adc(32.0); return; }
+//  if ((now - start) >= (5 * interval)) { setpoint = thermistor_c_to_adc(31.0); return; }
+  if ((now - start) >= (4 * interval)) { setpoint = thermistor_c_to_adc(30.0); return; }
+  if ((now - start) >= (3 * interval)) { setpoint = thermistor_c_to_adc(29.0); return; }
+  if ((now - start) >= (2 * interval)) { setpoint = thermistor_c_to_adc(28.0); return; }
+  if ((now - start) >= (1 * interval)) { setpoint = thermistor_c_to_adc(27.0); return; }
   setpoint = thermistor_c_to_adc(26.0);
 }
 
@@ -361,14 +373,16 @@ void program1_loop() {
     analogWrite(OUTPUT_PIN, 0);
   }
 
-  float set_c = thermistor_adc_to_c(setpoint);
-  Serial.print(set_c, 3);
-  Serial.print(", ");
-  float c = thermistor_adc_to_c(input);
-  Serial.print(c, 3);
-  Serial.print(", ");
-  Serial.println(output);
-  Serial.flush();
+  if (!done) {
+    float set_c = thermistor_adc_to_c(setpoint);
+    Serial.print(set_c, 3);
+    Serial.print(", ");
+    float c = thermistor_adc_to_c(input);
+    Serial.print(c, 3);
+    Serial.print(", ");
+    Serial.println(output);
+    Serial.flush();
+  }
 
   while (millis() > next_loop_start) { next_loop_start += loop_period; }
   while (millis() < next_loop_start) { delay(1); }
