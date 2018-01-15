@@ -40,3 +40,4 @@ OK!  Finally a decent looking result.  It looks like the resistor deviated about
 
 Just for giggles, let's test a 5% carbon film from the junk bin.  This was from the first set of resistors I ever purchased -- a combo kit from Jameco (https://www.jameco.com/z/00081832-540-Piece-1-4-Watt-5-Carbon-Film-Resistor-Component-Kit_81832.html).
 
+![](run6-5pct-carbon-film-10k/tempco.png)
