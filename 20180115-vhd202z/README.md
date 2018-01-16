@@ -4,4 +4,6 @@ logging some Vishay VHD202Z hermetically sealed Z-foil resistors.
 
 10 steps of 1C, 5 minutes per step.
 
+![](IMG_2260.JPG)
 
+![](IMG_2261.JPG)
