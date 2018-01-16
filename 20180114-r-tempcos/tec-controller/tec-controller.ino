@@ -208,7 +208,7 @@ void read_sensor() {
 // http://www.vishay.com/docs/29050/ntclg100.pdf
 // https://www.digikey.com/products/en?keywords=NTCLG100E2103JB
 float thermistor_nom = 11800.0;
-float temp_nom = 21.0;
+float temp_nom = 20.45;
 float b_coefficient = 3977;
 float series_r = 9853.0;
 
@@ -344,7 +344,7 @@ void program1_setup() {
 }
 
 void program1_set_c() {
-  uint32_t interval = 180000;
+  uint32_t interval = 300000;
   uint32_t now = millis();
   if ((now - start) >= (20 * interval)) { verbose = false; }
   if ((now - start) >= (13 * interval)) { setpoint = thermistor_c_to_adc(26.0); return; }
