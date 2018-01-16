@@ -46,7 +46,7 @@ if __name__ == "__main__":
 
     oven_out = open("oven-controller.csv", "w")
     tempco_out = open("tempco.csv", "w")
-    tempco_out.write("temp_c,ppm,resistance\n")
+    tempco_out.write("resistance,ppm,temp_c\n")
     tempco_out.flush()
 
     last_hp_value = None
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
                 c = float(line.rstrip().split(",")[1])
                 ppm = (last_hp_value - base_r) / base_r * 1000000.0
-                tempco_out.write("%s,%0.2f,%s\n" % (c, ppm, last_hp_value))
+                tempco_out.write("%s,%0.2f,%s\n" % (last_hp_value, ppm, c))
                 tempco_out.flush()
         else:
             # when the Arduino stops sptting out values, the run is over.
