@@ -8,6 +8,6 @@ logging some Vishay VHD202Z hermetically sealed Z-foil resistors.
 
 ![](IMG_2261.JPG)
 
-![](tempco.png)
+![](run1-9k9850-1/tempco.png)
 
 -1.3ppm/K?  Are you kidding me?  This is disappointing to say the least.  So much for 0.2ppm/C.  http://www.vishaypg.com/docs/63120/hzseries.pdf
