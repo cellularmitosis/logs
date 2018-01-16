@@ -21,3 +21,13 @@ Let's see what the effect of lead length is on the tempco.
 ![](run2-9k9850-1/tempco.png)
 
 no apparent difference.
+
+## run 3: 9K9850 #2
+
+![](run3-9k9850-2/IMG_2263.JPG)
+
+![](run3-9k9850-2/tempco.png)
+
+Bummer, this one is just as bad: -1.35ppm/K.
+
+Looks like I made a mistake and truncated the lead-in data.  The chart starts at the jump from 25C to 26C.
