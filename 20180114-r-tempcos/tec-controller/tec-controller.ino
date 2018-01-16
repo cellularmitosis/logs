@@ -344,21 +344,21 @@ void program1_setup() {
 }
 
 void program1_set_c() {
-  uint32_t interval = 90000;
+  uint32_t interval = 180000;
   uint32_t now = millis();
   if ((now - start) >= (20 * interval)) { verbose = false; }
-  if ((now - start) >= (12 * interval)) { setpoint = thermistor_c_to_adc(26.0); return; }
-  if ((now - start) >= (11 * interval)) { setpoint = thermistor_c_to_adc(36.0); return; }
-  if ((now - start) >= (10 * interval)) { setpoint = thermistor_c_to_adc(35.0); return; }
-  if ((now - start) >= (9 * interval)) { setpoint = thermistor_c_to_adc(34.0); return; }
-  if ((now - start) >= (8 * interval)) { setpoint = thermistor_c_to_adc(33.0); return; }
-  if ((now - start) >= (7 * interval)) { setpoint = thermistor_c_to_adc(32.0); return; }
-  if ((now - start) >= (6 * interval)) { setpoint = thermistor_c_to_adc(31.0); return; }
-  if ((now - start) >= (5 * interval)) { setpoint = thermistor_c_to_adc(30.0); return; }
-  if ((now - start) >= (4 * interval)) { setpoint = thermistor_c_to_adc(29.0); return; }
-  if ((now - start) >= (3 * interval)) { setpoint = thermistor_c_to_adc(28.0); return; }
-  if ((now - start) >= (2 * interval)) { setpoint = thermistor_c_to_adc(27.0); return; }
-  if ((now - start) >= (1 * interval)) { verbose = true; return; }
+  if ((now - start) >= (13 * interval)) { setpoint = thermistor_c_to_adc(26.0); return; }
+  if ((now - start) >= (12 * interval)) { setpoint = thermistor_c_to_adc(36.0); return; }
+  if ((now - start) >= (11 * interval)) { setpoint = thermistor_c_to_adc(35.0); return; }
+  if ((now - start) >= (10 * interval)) { setpoint = thermistor_c_to_adc(34.0); return; }
+  if ((now - start) >= (9 * interval)) { setpoint = thermistor_c_to_adc(33.0); return; }
+  if ((now - start) >= (8 * interval)) { setpoint = thermistor_c_to_adc(32.0); return; }
+  if ((now - start) >= (7 * interval)) { setpoint = thermistor_c_to_adc(31.0); return; }
+  if ((now - start) >= (6 * interval)) { setpoint = thermistor_c_to_adc(30.0); return; }
+  if ((now - start) >= (5 * interval)) { setpoint = thermistor_c_to_adc(29.0); return; }
+  if ((now - start) >= (4 * interval)) { setpoint = thermistor_c_to_adc(28.0); return; }
+  if ((now - start) >= (3 * interval)) { setpoint = thermistor_c_to_adc(27.0); return; }
+  if ((now - start) >= (2 * interval)) { verbose = true; return; }
   setpoint = thermistor_c_to_adc(26.0);
 }
 

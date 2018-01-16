@@ -52,7 +52,7 @@ if __name__ == "__main__":
     last_hp_value = None
     last_arduino_time = None
 
-    # store up the first 5 values to average as the base_r to calculate ppm.
+    # store up 5 values to average as the base_r to calculate ppm.
     base_r = None
     base_r_5 = []
 
@@ -60,13 +60,12 @@ if __name__ == "__main__":
         if hp34401a.inWaiting():
             last_hp_value = float(hp34401a.readline().rstrip())
             if base_r is None:
-                if len(base_r_5) < 5:
-                    base_r_5.append(last_hp_value)
-                else:
-                    base_r = sum(base_r_5) / 5.0
+                base_r_5 = [last_hp_value] + base_r_5[:4]
         elif arduino.inWaiting():
             last_arduino_time = time.time()
             line = arduino.readline()
+            if not base_r and len(base_r_5) == 5:
+                base_r = sum(base_r_5) / 5.0
             if last_hp_value and base_r:
                 oven_out.write(line)
                 oven_out.flush()
