@@ -54,7 +54,16 @@ I also have three VHP202Z 19K980 resistors.  Here's the first.  5min/C.
 
 ![](run6-19k980-1/tempco.png)
 
-whoa, yuck.  perhaps a bad solder joint?
+whoa, yuck, that is terribly noisy.  perhaps a bad solder joint?
 
 
 ## run 7: 19K980 #2
+
+5min/C.
+
+
+![](run7-19k980-2/tempco.png)
+
+ugh, another grabage result.  where is all of this noise coming from all of a sudden?
+
+
