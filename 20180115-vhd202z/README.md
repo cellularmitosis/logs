@@ -40,3 +40,10 @@ testing the third 9K9850.  this was a quick run (2 minutes per C).  I want to ge
 
 ![](run4-9k9850-3/tempco.png)
 
+Looks like -0.65ppm/K.
+
+## run 5: 9K9850 #3
+
+repeating the 9K9850 resistor #3 but at 5min/C.
+
+![](run5-9k9850-3/tempco.png)

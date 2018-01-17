@@ -348,7 +348,7 @@ void program1_setup() {
 int program_step = 0;
 
 void program1_set_c() {
-  uint32_t interval = 120000; // 5 minutes per 1C step
+  uint32_t interval = 300000; // 5 minutes per 1C step
   uint32_t now = millis();
   if ((now - start) >= (18 * interval) && program_step < 18) {
     verbose = false;
