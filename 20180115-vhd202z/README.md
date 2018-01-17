@@ -47,3 +47,14 @@ Looks like -0.65ppm/K.
 repeating the 9K9850 resistor #3 but at 5min/C.
 
 ![](run5-9k9850-3/tempco.png)
+
+## run 6: 19K980 #1
+
+I also have three VHP202Z 19K980 resistors.  Here's the first.  5min/C.
+
+![](run6-19k980-1/tempco.png)
+
+whoa, yuck.  perhaps a bad solder joint?
+
+
+## run 7: 19K980 #2
