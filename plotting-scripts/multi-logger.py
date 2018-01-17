@@ -29,11 +29,15 @@ if __name__ == "__main__":
     # listener to recieve them.  thus, when we first run this script, we will get an initial
     # flood of queued readings.  throw those away.
     then = time.time()
-    arduino.readline()
+    line = arduino.readline()
+    if line.startswith("debug:"):
+        sys.stdout.write(line)
     now = time.time()
     while now - then < 0.2:
         then = time.time()
-        arduino.readline()
+        line = arduino.readline()
+        if line.startswith("debug:"):
+            sys.stdout.write(line)
         now = time.time()
 
     then = time.time()
@@ -51,6 +55,8 @@ if __name__ == "__main__":
 
     last_hp_value = None
     last_arduino_time = None
+    last_ppm = None
+    last_c = None
 
     # store up 5 values to average as the base_r to calculate ppm.
     base_r = None
@@ -62,10 +68,16 @@ if __name__ == "__main__":
             if base_r is None:
                 base_r_5 = [last_hp_value] + base_r_5[:4]
         elif arduino.inWaiting():
-            last_arduino_time = time.time()
             line = arduino.readline()
+            if line.startswith("debug:"):
+                sys.stdout.write(line)
+                if last_ppm and last_c and last_c > 25.5:
+                    print "current tempco: %0.2f ppm/K" % (last_ppm / (last_c - 25))
+                continue
+            last_arduino_time = time.time()
             if not base_r and len(base_r_5) == 5:
                 base_r = sum(base_r_5) / 5.0
+                print "base_r:", base_r
             if last_hp_value and base_r:
                 oven_out.write(line)
                 oven_out.flush()
@@ -74,6 +86,8 @@ if __name__ == "__main__":
                 ppm = (last_hp_value - base_r) / base_r * 1000000.0
                 tempco_out.write("%s,%0.2f,%s\n" % (last_hp_value, ppm, c))
                 tempco_out.flush()
+                last_ppm = ppm
+                last_c = c
         else:
             # when the Arduino stops sptting out values, the run is over.
             if last_arduino_time is not None and time.time() - last_arduino_time > 1.0:

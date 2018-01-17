@@ -345,23 +345,95 @@ void program1_setup() {
   verbose = false;
 }
 
+int program_step = 0;
+
 void program1_set_c() {
-  uint32_t interval = 300000; // 5 minutes per 1C step
+  uint32_t interval = 120000; // 5 minutes per 1C step
   uint32_t now = millis();
-  if ((now - start) >= (20 * interval)) { verbose = false; }
-  if ((now - start) >= (13 * interval)) { setpoint = thermistor_c_to_adc(25.0); return; }
-  if ((now - start) >= (12 * interval)) { setpoint = thermistor_c_to_adc(35.0); return; }
-  if ((now - start) >= (11 * interval)) { setpoint = thermistor_c_to_adc(34.0); return; }
-  if ((now - start) >= (10 * interval)) { setpoint = thermistor_c_to_adc(33.0); return; }
-  if ((now - start) >= (9 * interval)) { setpoint = thermistor_c_to_adc(32.0); return; }
-  if ((now - start) >= (8 * interval)) { setpoint = thermistor_c_to_adc(31.0); return; }
-  if ((now - start) >= (7 * interval)) { setpoint = thermistor_c_to_adc(30.0); return; }
-  if ((now - start) >= (6 * interval)) { setpoint = thermistor_c_to_adc(29.0); return; }
-  if ((now - start) >= (5 * interval)) { setpoint = thermistor_c_to_adc(28.0); return; }
-  if ((now - start) >= (4 * interval)) { setpoint = thermistor_c_to_adc(27.0); return; }
-  if ((now - start) >= (3 * interval)) { setpoint = thermistor_c_to_adc(26.0); return; }
-  if ((now - start) >= (2 * interval)) { verbose = true; return; }
-  setpoint = thermistor_c_to_adc(25.0);
+  if ((now - start) >= (18 * interval) && program_step < 18) {
+    verbose = false;
+    Serial.println("debug: verbose off");
+    program_step = 18;
+    return;
+  }
+  if ((now - start) >= (13 * interval) && program_step < 13) {
+    setpoint = thermistor_c_to_adc(25.0);
+    Serial.println("debug: 25C");
+    program_step = 13;
+    return;
+  }
+  if ((now - start) >= (12 * interval) && program_step < 12) {
+    setpoint = thermistor_c_to_adc(35.0);
+    Serial.println("debug: 35C");
+    program_step = 12;
+    return;
+  }
+  if ((now - start) >= (11 * interval) && program_step < 11) {
+    setpoint = thermistor_c_to_adc(34.0);
+    Serial.println("debug: 34C");
+    program_step = 11;
+    return;
+  }
+  if ((now - start) >= (10 * interval) && program_step < 10) {
+    setpoint = thermistor_c_to_adc(33.0);
+    Serial.println("debug: 33C");
+    program_step = 10;
+    return;
+  }
+  if ((now - start) >= (9 * interval) && program_step < 9) {
+    setpoint = thermistor_c_to_adc(32.0);
+    Serial.println("debug: 32C");
+    program_step = 9;
+    return;
+  }
+  if ((now - start) >= (8 * interval) && program_step < 8) {
+    setpoint = thermistor_c_to_adc(31.0);
+    Serial.println("debug: 31C");
+    program_step = 8;
+    return;
+  }
+  if ((now - start) >= (7 * interval) && program_step < 7) {
+    setpoint = thermistor_c_to_adc(30.0);
+    Serial.println("debug: 30C");
+    program_step = 7;
+    return;
+  }
+  if ((now - start) >= (6 * interval) && program_step < 6) {
+    setpoint = thermistor_c_to_adc(29.0);
+    Serial.println("debug: 29C");
+    program_step = 6;
+    return;
+  }
+  if ((now - start) >= (5 * interval) && program_step < 5) {
+    setpoint = thermistor_c_to_adc(28.0);
+    Serial.println("debug: 28C");
+    program_step = 5;
+    return;
+  }
+  if ((now - start) >= (4 * interval) && program_step < 4) {
+    setpoint = thermistor_c_to_adc(27.0);
+    Serial.println("debug: 27C");
+    program_step = 4;
+    return;
+  }
+  if ((now - start) >= (3 * interval) && program_step < 3) {
+    setpoint = thermistor_c_to_adc(26.0);
+    Serial.println("debug: 26C");
+    program_step = 3;
+    return;
+  }
+  if ((now - start) >= (2 * interval) && program_step < 2) {
+    verbose = true;
+    Serial.println("debug: verbose on");
+    program_step = 2;
+    return;
+  }
+  if (program_step < 1) {
+    Serial.println("debug: starting at 25C");
+    setpoint = thermistor_c_to_adc(25.0);
+    program_step = 1;
+    return;
+  }
 }
 
 void program1_loop() {

@@ -31,3 +31,12 @@ no apparent difference.
 Bummer, this one is just as bad: -1.35ppm/K.
 
 Looks like I made a mistake and truncated the lead-in data.  The chart starts at the jump from 25C to 26C.
+
+## run 4: 9K9850 #3
+
+testing the third 9K9850.  this was a quick run (2 minutes per C).  I want to get through the rest of these resistors quickly to see if they are all ~1.3ppm/K.
+
+![](run4-9k9850-3/IMG_2266.JPG)
+
+![](run4-9k9850-3/tempco.png)
+
