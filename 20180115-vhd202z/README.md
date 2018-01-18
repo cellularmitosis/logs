@@ -67,3 +67,8 @@ whoa, yuck, that is terribly noisy.  perhaps a bad solder joint?
 ugh, another grabage result.  where is all of this noise coming from all of a sudden?
 
 
+## run 8: 19K980 #2
+
+I unplugged a laptop adapter which was on the same circuit as my HP34401A (perhaps there is an EMI problem on the 120V line?).  Repeating the same run.  5min/C.
+
+oh wait, I just realized I jumped to a different resistance range when I moved from 10k to 20k resistors.  I'm now at the bottom of the next range, using only 20% of the ADC's range.
