@@ -48,16 +48,16 @@ repeating the 9K9850 resistor #3 but at 5min/C.
 
 ![](run5-9k9850-3/tempco.png)
 
-## run 6: 19K980 #1
+## run 6: 19K970 #1
 
-I also have three VHP202Z 19K980 resistors.  Here's the first.  5min/C.
+I also have three VHP202Z 19K970 resistors.  Here's the first.  5min/C.
 
 ![](run6-19k970-1/tempco.png)
 
 whoa, yuck, that is terribly noisy.  perhaps a bad solder joint?
 
 
-## run 7: 19K980 #2
+## run 7: 19K970 #2
 
 5min/C.
 
@@ -67,8 +67,17 @@ whoa, yuck, that is terribly noisy.  perhaps a bad solder joint?
 ugh, another grabage result.  where is all of this noise coming from all of a sudden?
 
 
-## run 8: 19K980 #2
+## run 8: 19K970 #2
 
 I unplugged a laptop adapter which was on the same circuit as my HP34401A (perhaps there is an EMI problem on the 120V line?).  Repeating the same run.  5min/C.
 
 oh wait, I just realized I jumped to a different resistance range when I moved from 10k to 20k resistors.  I'm now at the bottom of the next range, using only 20% of the ADC's range.
+
+
+![](run8-19k970-2/tempco.png)
+
+## run 9: 19K970 #2
+
+just repeating the same run again.
+
+![](run9-19k970-2/tempco.png)
