@@ -19,3 +19,9 @@ here we see the noisy result I was expecting.
 we expect this result to be our best-case scenario, because it is near the top of the ADC's range.
 
 ![](run2-9k9850-1/chart.png)
+
+## run 3: AE XB 25K000
+
+this sits at 25% of the ADC's range, so we expect the noise to be slightly better than the 19K970.
+
+![](run3-ae-xb-25k000/chart.png)
