@@ -12,7 +12,7 @@ connectors are [Cinch 108-0753-102](https://www.digikey.com/product-detail/en/ci
 
 ![](run1-19k970-3/chart.png)
 
-here we see the noisy result I was expecting.
+here we see the noisy ppm result I was expecting.
 
 ## run 2: 9k9850 #1
 
@@ -22,6 +22,13 @@ we expect this result to be our best-case scenario, because it is near the top o
 
 ## run 3: AE XB 25K000
 
-this sits at 25% of the ADC's range, so we expect the noise to be slightly better than the 19K970.
+this sits at 25% of the ADC's range, so we expect the ppm noise to be slightly better than the 19K970.
 
 ![](run3-ae-xb-25k000/chart.png)
+
+## run 4: Vishay S102K 30K000
+
+this sits at 30% of the ADC's range, so ppm's should be veeeery slightly less noisy than the 25k.
+
+![](run4-s102k-30k000/chart.png)
+
