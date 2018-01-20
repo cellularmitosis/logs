@@ -2,7 +2,7 @@ To evaluate the performance of my meter, I'll just log a VHP202Z for several hou
 
 ## run 1
 
-testing VHP202Z 19K980 #3, soldered using very short 4-wire leads. 
+testing VHP202Z 19K970 #3, soldered using very short 4-wire leads. 
 
 connectors are [Cinch 108-0753-102](https://www.digikey.com/product-detail/en/cinch-connectivity-solutions-johnson/108-0753-102/J10108-ND/565813).  wire is 24 AWG cat 5, stripped.
 
