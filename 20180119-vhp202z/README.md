@@ -4,6 +4,6 @@ To evaluate the performance of my meter, I'll just log a VHP202Z for several hou
 
 testing VHP202Z 19K980 #3, soldered using very short 4-wire leads. 
 
-![](run1/IMG_2289.JPG)
+![](IMG_2289.JPG)
 
-![](run1/IMG_2290.JPG)
+![](IMG_2290.JPG)
