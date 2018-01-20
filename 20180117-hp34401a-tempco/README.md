@@ -32,21 +32,21 @@ I kept the LM399 inside, then placed the meter outside on the balcony, feeding t
 
 This time, the LM399 was powered by a CSI1802X linear supply set to 15V.
 
-![](run1-fridge/IMG_2276.JPG)
+![](run2-balcony/IMG_2276.JPG)
 
-![](run1-fridge/IMG_2277.JPG)
+![](run2-balcony/IMG_2277.JPG)
 
-![](run1-fridge/IMG_2278.JPG)
+![](run2-balcony/IMG_2278.JPG)
 
 I left the meter out overnight, briefly brought just the temperature sensor back inside to verify the indoor temperature was stable, then put the temp sensor back outside.  In the morning, I moved the meter back inside, and let it run all day while at work.
 
 It appears I have caused a hysteretic shift downwards.
 
-![](run1-fridge/tempco-outside-pt1.png)
+![](run2-balcony/tempco-outside-pt1.png)
 
-![](run1-fridge/tempco-outside-pt2.png)
+![](run2-balcony/tempco-outside-pt2.png)
 
-![](run1-fridge/tempco-outside-pt3.png)
+![](run2-balcony/tempco-outside-pt3.png)
 
 Hmm, I just noticed an 80uV jump between the end of the previous experiment and the beginning of this one.  Was that entire difference due to the 12V lipo vs 15V linear supply?
 
@@ -55,8 +55,14 @@ Hmm, I just noticed an 80uV jump between the end of the previous experiment and 
 
 I picked up a styrofoam chest on the way home from work today, with the idea of placing the meter inside and allowing to heat up its own environment.
 
-![](run1-fridge/IMG_2280.JPG)
+![](run2-balcony/IMG_2280.JPG)
 
-![](run1-fridge/IMG_2281.JPG)
+![](run2-balcony/IMG_2281.JPG)
 
-![](run1-fridge/IMG_2282.JPG)
+![](run2-balcony/IMG_2282.JPG)
+
+![](run2-balcony/tempco-outside-pt4.png)
+
+![](run2-balcony/tempco-outside-pt5.png)
+
+again, there was an immediate jump, which I can't believe is actually the tempco of the meter.  I believe that simply moving the meter around is causing the jumps, and the much slower adjustments after those jumps are the actual tempco of the meter.
