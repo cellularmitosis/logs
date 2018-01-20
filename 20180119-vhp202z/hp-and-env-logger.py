@@ -114,7 +114,7 @@ if __name__ == "__main__":
 
     crc8 = Crc8()
     bytes = bytearray([0,0,0,0,0,0,0,0,0])
-    print "timestamp,lm399,temp_c,humidity"
+    print "timestamp,r,humidity,temp_c"
 
     hp_value = None
 
@@ -138,7 +138,7 @@ if __name__ == "__main__":
         (now,temp_c,humidity) = ret
 
         if hp_value:
-            print "%s,%0.3f,%0.3f,%0.3f" % (now, hp_value, temp_c, humidity)
+            print "%s,%0.3f,%0.3f,%0.3f" % (now, hp_value, humidity, temp_c)
             sys.stdout.flush()
             hp_value = None
 
