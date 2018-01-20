@@ -10,7 +10,7 @@ connectors are [Cinch 108-0753-102](https://www.digikey.com/product-detail/en/ci
 
 ![](IMG_2290.JPG)
 
-![](run1/chart.png)
+![](run1-19k970-3/chart.png)
 
 here we see the noisy result I was expecting.
 
