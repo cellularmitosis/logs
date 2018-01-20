@@ -9,3 +9,8 @@ connectors are [Cinch 108-0753-102](https://www.digikey.com/product-detail/en/ci
 ![](IMG_2289.JPG)
 
 ![](IMG_2290.JPG)
+
+![](run1/chart.png)
+
+here we see the noisy result I was expecting.
+
