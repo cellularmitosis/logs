@@ -1,6 +1,6 @@
 To evaluate the performance of my meter, I'll just log a VHP202Z for several hours.  My suspicion is that the "noise" issue I'm seeing is simply due to the fact that a 20k resistor only occupies the bottom 20% of the ADC's range, so when that signal gets scaled up in a graph, the resulting tempco looks very "noisy".
 
-## run 1
+## run 1: 19k970 #3
 
 testing VHP202Z 19K970 #3, soldered using very short 4-wire leads. 
 
@@ -14,3 +14,8 @@ connectors are [Cinch 108-0753-102](https://www.digikey.com/product-detail/en/ci
 
 here we see the noisy result I was expecting.
 
+## run 2: 9k9850 #1
+
+we expect this result to be our best-case scenario, because it is near the top of the ADC's range.
+
+![](run2-9k9850-1/chart.png)
