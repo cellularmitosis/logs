@@ -1,7 +1,10 @@
-To evaluate the performance of my meter, I'll just log a VHP202Z for several hours.  My suspicion is that the "noise" issue I'm seeing is simply due to the fact that a 20k resistor only occupies the bottom 20% of the ADC's range, so when that signal gets scaled up in a graph, the resulting tempco looks very "noisy".
+While using my tempco-evaluation rig (see http://www.eevblog.com/forum/projects/mini-tempco-characterization-rig/msg1402458/#msg1402458), noticed that I had excellent results with a 10k resistor, and very "noisy" results with a 20k resistor.
 
-I'll make sure I keep the ppm scale the same across all of these charts (+2ppm to -2ppm).
+I have since realized that the issue was that I am graphing / measuring ppm, which scales with the resistor.  I.e., if a 20k is only 1/5th of a 100k, the "signal" needs to be scaled up by 5x to fit into the same ppm scale.  However, this also means we are scaling up the drift/noise of the meter by 5x.
 
+As a result, I can accurately measure the tempco of a resistor which is near the top of my meter's resistance range (e.g., 9.9k, 99k, etc), but my rig does a poor job of measuring the tempco of resistors near the bottom of my meter's range (e.g. 1.1k, 11k, etc).
+
+I'll make sure I keep the ppm scale the same across all of these charts (+2ppm to -2ppm) to illustrate the trend.
 
 ## run 1: 19k970 #3
 
@@ -19,7 +22,7 @@ here we see the noisy ppm result I was expecting.
 
 ## run 2: 9k9850 #1
 
-see below
+(see below)
 
 ## run 3: AE XB 25K000
 
