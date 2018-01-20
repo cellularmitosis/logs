@@ -17,6 +17,10 @@ connectors are [Cinch 108-0753-102](https://www.digikey.com/product-detail/en/ci
 
 here we see the noisy ppm result I was expecting.
 
+## run 2: 9k9850 #1
+
+see below
+
 ## run 3: AE XB 25K000
 
 this sits at 25% of the ADC's range, so we expect the ppm noise to be slightly better than the 19K970.
@@ -57,8 +61,10 @@ we expect this result to be very good, because it is near the top of the ADC's r
 
 hmm, I had expected this to be cleaner.
 
-## finally, back where we started the other day: 9k9850 #1
+## finally, back where we started the other day: run 2: 9k9850 #1
 
 we expect this result to be very good, because it is near the top of the ADC's range.
 
-![](run2-9k9850-1/chart.png)
+![](run2-9k9850-1/chart2.png)
+
+edit: redoing the chart for run 2 for consistent ppm scale
