@@ -32,3 +32,8 @@ this sits at 30% of the ADC's range, so ppm's should be veeeery slightly less no
 
 ![](run4-s102k-30k000/chart.png)
 
+## run 5: Vishay VSRJ 50K000
+
+50% of the ADC's range, yadda yadda yadda...
+
+![](run5-vsrj-50k000/chart.png)
