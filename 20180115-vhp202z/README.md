@@ -52,7 +52,7 @@ repeating the 9K9850 resistor #3 but at 5min/C.
 
 I also have three VHP202Z 19K980 resistors.  Here's the first.  5min/C.
 
-![](run6-19k980-1/tempco.png)
+![](run6-19k970-1/tempco.png)
 
 whoa, yuck, that is terribly noisy.  perhaps a bad solder joint?
 
@@ -62,7 +62,7 @@ whoa, yuck, that is terribly noisy.  perhaps a bad solder joint?
 5min/C.
 
 
-![](run7-19k980-2/tempco.png)
+![](run7-19k970-2/tempco.png)
 
 ugh, another grabage result.  where is all of this noise coming from all of a sudden?
 
