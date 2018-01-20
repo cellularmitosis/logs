@@ -120,7 +120,7 @@ if __name__ == "__main__":
 
     while True:
         if hp34401a.inWaiting():
-            hp_value = float(hp34401a.readline().rstrip())
+            hp_value = float(hp34401a.readline().rstrip()) * 1000000
 
         # read in 9 bytes from the arduino and process the message
         for i in range(9):
@@ -138,7 +138,7 @@ if __name__ == "__main__":
         (now,temp_c,humidity) = ret
 
         if hp_value:
-            print "%s,%f,%0.3f,%0.3f" % (now, hp_value, temp_c, humidity)
+            print "%s,%0.1f,%0.3f,%0.3f" % (now, hp_value, temp_c, humidity)
             sys.stdout.flush()
             hp_value = None
 
