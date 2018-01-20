@@ -57,9 +57,7 @@ we expect this result to be very good, because it is near the top of the ADC's r
 
 ![](run7-s102c-100k00/IMG_2297.JPG)
 
-![](run7-s102c-100k00/chart.png)
-
-hmm, I had expected this to be cleaner.
+![](run7-s102c-100k00/chart2.png)
 
 ## finally, back where we started the other day: run 2: 9k9850 #1
 
@@ -67,4 +65,4 @@ we expect this result to be very good, because it is near the top of the ADC's r
 
 ![](run2-9k9850-1/chart2.png)
 
-edit: redoing the chart for run 2 for consistent ppm scale
+edit: redoing some of the charts for consistent ppm and temperature scale.
