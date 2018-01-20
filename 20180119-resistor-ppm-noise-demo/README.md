@@ -39,7 +39,25 @@ this sits at 30% of the ADC's range, so ppm's should be veeeery slightly less no
 
 ![](run5-vsrj-50k000/chart.png)
 
-## finally, run 2 (ran these out of order, oops!): 9k9850 #1
+## run 6: TDK 80K000
+
+![](run6-tdk-80k000/IMG_2296.JPG)
+
+![](run6-tdk-80k000/chart.png)
+
+I started cooking dinner here, and the equipment is currently in the kitchen, so the temperature is a little drifty here.
+
+## run 7: S102C 100K000
+
+we expect this result to be very good, because it is near the top of the ADC's range.
+
+![](run7-s102c-100k00/IMG_2297.JPG)
+
+![](run7-s102c-100k00/chart.png)
+
+hmm, I had expected this to be cleaner.
+
+## finally, back where we started the other day: 9k9850 #1
 
 we expect this result to be very good, because it is near the top of the ADC's range.
 
