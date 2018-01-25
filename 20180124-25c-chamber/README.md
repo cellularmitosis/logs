@@ -44,6 +44,9 @@ During one of these runs I noticed a problem where the temperature measurement s
 - set: 450
 - period: 300ms
 
+![](1516863539-run2/shot1.png)
+
+
 ## run3:
 
 - p: 0.75, i: 0.075, d: 0
@@ -51,6 +54,10 @@ During one of these runs I noticed a problem where the temperature measurement s
 - period: 300ms
 
 the unit left regulation overnight, when the temperature in my apartment dropped (went to bed at 71F, woke up at 9am at 67F).
+
+![](1516867509-run3/shot1.png)
+
+![](1516867509-run3/shot2.png)
 
 ## run3:
 
@@ -61,4 +68,6 @@ the unit left regulation overnight, when the temperature in my apartment dropped
 this run was just to demonstrate the problem of the 12V supply influencing the temperature reading.
 
 half way into this run I turned off the 12V supply for a minute, then turned it back on.  total run was about 3 minutes.
+
+![](1516893458-run4/shot1.png)
 
