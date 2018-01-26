@@ -75,8 +75,15 @@ half way into this run I turned off the 12V supply for a minute, then turned it 
 
 for run 5, I modified the heater resistor circuit, by removing (shorting) one resistor above and below the 2N3904, for a total of eight 10 Ohm resistors, to increase the max current of the circuit.
 
+the Si7021 output:
+
 ![](1516946844-run5/si7021.png)
+
+the ADC counts (reading the amplified MCP9701A).  the scale is about 100 counts per C, making each gridline about 0.1C.
 
 ![](1516946844-run5/adc.png)
 
+the PWM output (0 to 255):
+
 ![](1516946844-run5/pwm.png)
+
