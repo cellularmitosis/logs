@@ -59,7 +59,7 @@ the unit left regulation overnight, when the temperature in my apartment dropped
 
 ![](1516867509-run3/shot2.png)
 
-## run3:
+## run4:
 
 - p: 0.75, i: 0.075, d: 0
 - set: 400
