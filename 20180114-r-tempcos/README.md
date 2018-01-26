@@ -42,7 +42,3 @@ Just for giggles, let's test a 5% carbon film from the junk bin.  This was from 
 
 ![](run6-5pct-carbon-film-10k/tempco.png)
 
-## run 7: temperature calibration
-
-I placed an Si7012 temperature / humidity logger into the chamber to see if my thermistor calculation was accurate.
-
