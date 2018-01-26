@@ -71,3 +71,12 @@ half way into this run I turned off the 12V supply for a minute, then turned it 
 
 ![](1516893458-run4/shot1.png)
 
+## run5:
+
+for run 5, I modified the heater resistor circuit, by removing (shorting) one resistor above and below the 2N3904, for a total of eight 10 Ohm resistors, to increase the max current of the circuit.
+
+![](1516946844-run5/si7021.png)
+
+![](1516946844-run5/adc.png)
+
+![](1516946844-run5/pwm.png)
