@@ -87,3 +87,23 @@ The PWM output (0 to 255):
 
 ![](1516946844-run5/pwm.png)
 
+
+## run6:
+
+PID tuning.
+
+- p: 1, i: 0, d: 0
+- set point: 400
+- period: 300ms
+
+The Si7021 output:
+
+![](1516946844-run5/si7021.png)
+
+The ADC input (reading the amplified MCP9701A).  The scale is about 100 counts per C, making each gridline about 0.1C.
+
+![](1516946844-run5/adc.png)
+
+The PWM output (0 to 255):
+
+![](1516946844-run5/pwm.png)
