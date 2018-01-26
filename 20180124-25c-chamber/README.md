@@ -34,14 +34,14 @@ An Si7021 was used as the DUT to verify the temperature tracking.
 
 These were a few initial runs as I was getting the setup connected and working.
 
-During one of these runs I noticed a problem where the temperature measurement showed a siginicant offset when the 12V power supply (which powers the heater resistors) was turned on or off:
+~~During one of these runs I noticed a problem where the temperature measurement showed a siginicant offset when the 12V power supply (which powers the heater resistors) was turned on or off:~~ EDIT: the op amp is powered by the 12V rail, so of course removing the op amp's power affects the input reading...
 
 ![](1516861366-run0/shot1.png)
 
 ## run2:
 
 - p: 0.5, i: 0.1, d: 0.01
-- set: 450
+- set point: 450
 - period: 300ms
 
 ![](1516863539-run2/shot1.png)
@@ -50,10 +50,10 @@ During one of these runs I noticed a problem where the temperature measurement s
 ## run3:
 
 - p: 0.75, i: 0.075, d: 0
-- set: 400
+- set point: 400
 - period: 300ms
 
-the unit left regulation overnight, when the temperature in my apartment dropped (went to bed at 71F, woke up at 9am at 67F).
+The unit left regulation overnight, when the temperature in my apartment dropped (went to bed at 71F, woke up at 9am at 67F).
 
 ![](1516867509-run3/shot1.png)
 
@@ -62,28 +62,28 @@ the unit left regulation overnight, when the temperature in my apartment dropped
 ## run4:
 
 - p: 0.75, i: 0.075, d: 0
-- set: 400
+- set point: 400
 - period: 300ms
 
-this run was just to demonstrate the problem of the 12V supply influencing the temperature reading.
+~~This run was just to demonstrate the problem of the 12V supply influencing the temperature reading.~~  EDIT: the op amp is powered by the 12V rail, so of course removing its power will affect the reading...
 
-half way into this run I turned off the 12V supply for a minute, then turned it back on.  total run was about 3 minutes.
+Half way into this run I turned off the 12V supply for a minute, then turned it back on.  Total run was about 3 minutes.
 
 ![](1516893458-run4/shot1.png)
 
 ## run5:
 
-for run 5, I modified the heater resistor circuit, by removing (shorting) one resistor above and below the 2N3904, for a total of eight 10 Ohm resistors, to increase the max current of the circuit.
+For run 5, I modified the heater resistor circuit, by removing (shorting) one resistor above and below the 2N3904, for a total of eight 10 Ohm resistors, to increase the max current of the circuit.
 
-the Si7021 output:
+The Si7021 output:
 
 ![](1516946844-run5/si7021.png)
 
-the ADC counts (reading the amplified MCP9701A).  the scale is about 100 counts per C, making each gridline about 0.1C.
+The ADC input (reading the amplified MCP9701A).  The scale is about 100 counts per C, making each gridline about 0.1C.
 
 ![](1516946844-run5/adc.png)
 
-the PWM output (0 to 255):
+The PWM output (0 to 255):
 
 ![](1516946844-run5/pwm.png)
 
