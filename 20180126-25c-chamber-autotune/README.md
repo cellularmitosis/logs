@@ -81,3 +81,17 @@ unsigned int aTuneLookBack = 300;
 ![](1517041068-run2/chart.png)
 
 hmm, the results seem to be junk (p=1.26, i=0).
+
+## run3
+
+- p: 10
+- i: 0.025
+- period: 300ms
+- set point: 405
+
+![](1517076098-run3/si7021.png)
+
+![](1517076098-run3/adc.png)
+
+![](1517076098-run3/output.png)
+

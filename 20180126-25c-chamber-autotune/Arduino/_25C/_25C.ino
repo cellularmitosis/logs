@@ -327,13 +327,13 @@ uint8_t Weather::readReg()
 
 // "main"
 
-double kp = 5.75;
-double ki = 0.01;
+double kp = 10;
+double ki = 0.025;
 double kd = 0;
 
 double input;
 double output;
-double setpoint = 400;
+double setpoint = 405;
 
 PID myPID(&input, &output, &setpoint, kp, ki, kd, DIRECT);
 
