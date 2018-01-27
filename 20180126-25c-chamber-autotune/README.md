@@ -97,3 +97,41 @@ hmm, the results seem to be junk (p=1.26, i=0).
 
 looks like I don't have enough Ki to steer the final correction.
 
+## run4
+
+bumping ki to 0.05.
+
+- p: 10
+- i: 0.05
+- period: 300ms
+- set point: 408
+
+![](1517078139-run4/si7021.png)
+
+![](1517078139-run4/adc.png)
+
+![](1517078139-run4/output.png)
+
+## run5
+
+bumping ki to 0.1.
+
+- p: 10
+- i: 0.1
+- period: 300ms
+- set point: 407
+
+![](1517082367-run5/si7021.png)
+
+![](1517082367-run5/adc.png)
+
+![](1517082367-run5/output.png)
+
+## run6
+
+modifying the arduino code to accumulate and average samples for as long as it can during each loop period.  bumping the loop period to 5000ms.  hopefully this will reject more temperature noise (which would allow a derivative term).
+
+- p: 10
+- i: 0.1
+- period: 5000ms
+- set point: 407

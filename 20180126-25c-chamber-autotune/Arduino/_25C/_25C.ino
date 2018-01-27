@@ -327,22 +327,20 @@ uint8_t Weather::readReg()
 
 // "main"
 
+Weather si7021;
+
 double kp = 10;
-double ki = 0.025;
+double ki = 0.1;
 double kd = 0;
 
 double input;
 double output;
-double setpoint = 405;
+double setpoint = 407;
+
+uint32_t next_loop_start = 0;
+uint16_t loop_period = 5000; // in ms
 
 PID myPID(&input, &output, &setpoint, kp, ki, kd, DIRECT);
-
-uint32_t time;
-uint32_t start;
-uint32_t next_loop_start = 0;
-uint16_t loop_period = 300; // in ms
-
-Weather si7021;
 
 void setup() {
   // Tie the 3.3V pin to the AREF pin for a slightly cleaner AREF.
@@ -359,37 +357,39 @@ void setup() {
 
   // print the csv header
   delay(250);
-  Serial.println("si7021_c,si7021_h,set,input,output");
+  Serial.println("si7021_c,setpoint,input,output");
+
+  next_loop_start = millis() + loop_period;
 }
 
 void loop() {
 
-  float humidity = si7021.getRH();
   float temp_c = si7021.getTemp();
 
+  // accumulate samples until we only have 50ms of margin left in this loop
   uint32_t accumulator = 0;
-  uint16_t samples = 512;
-  for (uint16_t i = 0; i < samples; i++) {
-    accumulator += analogRead(A0);  
+  uint32_t samples = 0;
+  while (next_loop_start - millis() > 50) {
+    for (uint8_t i = 0; i < UINT8_MAX; i++) {
+      accumulator += analogRead(A0);
+    }
+    samples += UINT8_MAX;
   }
-  input = double(accumulator) / samples;
+  input = double(accumulator) / double(samples);    
 
   myPID.Compute();
-
   analogWrite(6, output);
 
+//  Serial.println(next_loop_start - millis()); // print out how much time margin was left
+  while (millis() <= next_loop_start) { delay(1); } // consume the rest of the time left in this loop
+  while (millis() > next_loop_start) { next_loop_start += loop_period; } // bump next_loop_start
+
   Serial.print(temp_c, 3);
-  Serial.print(",");
-  Serial.print(humidity, 3);
   Serial.print(",");
   Serial.print(setpoint, 0);
   Serial.print(",");
   Serial.print(input, 3);
   Serial.print(",");
   Serial.println(output, 2);
-
-  while (millis() > next_loop_start) { next_loop_start += loop_period; }
-//  Serial.println(next_loop_start - millis());
-  while (millis() < next_loop_start) { delay(1); }
 }
 
