@@ -112,4 +112,8 @@ The PWM output (0 to 255):
 
 - p: 10, i: 0, d: 0
 
+![](1516980792-run7/si7021.png)
 
+![](1516980792-run7/adc.png)
+
+![](1516980792-run7/output.png)
