@@ -330,7 +330,7 @@ uint8_t Weather::readReg()
 Weather si7021;
 
 double kp = 10;
-double ki = 0.1;
+double ki = 0.5;
 double kd = 0;
 
 double input;

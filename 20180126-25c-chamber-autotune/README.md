@@ -135,3 +135,19 @@ modifying the arduino code to accumulate and average samples for as long as it c
 - i: 0.1
 - period: 5000ms
 - set point: 407
+
+![](1517087070-run6/si7021.png)
+
+![](1517087070-run6/adc.png)
+
+![](1517087070-run6/output.png)
+
+## run7
+
+bumping up the ki term.
+
+- p: 10
+- i: 0.5
+- period: 5000ms
+- set point: 407
+
