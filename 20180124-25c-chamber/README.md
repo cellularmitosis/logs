@@ -107,3 +107,9 @@ The ADC input (reading the amplified MCP9701A).  The scale is about 100 counts p
 The PWM output (0 to 255):
 
 ![](1516952656-run6/pwm.png)
+
+## run7
+
+- p: 10, i: 0, d: 0
+
+
