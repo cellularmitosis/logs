@@ -95,3 +95,5 @@ hmm, the results seem to be junk (p=1.26, i=0).
 
 ![](1517076098-run3/output.png)
 
+looks like I don't have enough Ki to steer the final correction.
+
