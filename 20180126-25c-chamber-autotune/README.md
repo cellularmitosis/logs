@@ -46,6 +46,8 @@ the example program was also modified to spit out CSV and to terminate (infinite
     }
 ```
 
+hmm, looking at the output chart, I don't think this worked correctly.  I think I set the `aTuneNoise` too low.
+
 ## run1
 
 this was a test run to check on the above results.
@@ -55,3 +57,27 @@ this was a test run to check on the above results.
 - period: 300ms
 - set point: 400
 
+looks like `ki` is too small.
+
+![](1517039205-run1/si7021.png)
+
+![](1517039205-run1/adc.png)
+
+## run2
+
+another autotune run.
+
+```
+double input = 0, output = 0, setpoint = 400;
+double kp = 3, ki = 0.1, kd = 0;
+
+double outputStart = 0;
+double aTuneStep = 127;
+double aTuneNoise = 50;
+double aTuneStartValue = 127;
+unsigned int aTuneLookBack = 300;
+```
+
+![](1517041068-run2/chart.png)
+
+hmm, the results seem to be junk (p=1.26, i=0).
