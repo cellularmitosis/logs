@@ -151,3 +151,33 @@ bumping up the ki term.
 - period: 5000ms
 - set point: 407
 
+## run8 series
+
+bumping up the ki term, shortening the period, and testing at various set-points to get an ADC to Celcius mapping.
+
+- p: 10
+- i: 0.75
+- period: 3000ms
+- set point: 900
+
+## run9 series
+
+I hooked up a second Si7021 (with the idea of using it to track ambient temperature).  Here, I've put them both in the chamber to see how closely they track each other.
+
+## run10 series
+
+- p: 10
+- i: 0.75
+- period: 3000ms
+- set point: 228
+
+This was the first run I did where I also tracked the ambient temperature.  Swing in ambient temperature is essentially responsible for all of the swing in error.  It looks like the internal temperature variance is about 50x better than ambient variance.
+
+## run11
+
+bumping ki to 1.0.
+
+- p: 10
+- i: 1
+- period: 3000ms
+- set point: 231
