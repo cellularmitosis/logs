@@ -207,3 +207,24 @@ bumping ki to 1.0.
 ![](1517112317-run11/chart5.png)
 ![](1517112317-run11/chart6.png)
 ![](1517112317-run11/chart7.png)
+
+## run12
+
+the internal temperature ADC readings are still a bit noisy, and the signal is moving much slower than the noise.  we have room to try some additional averaging.
+
+oh, it turns out you are supposed to tell the PID library what your loop period is, and it scales the i and d terms accordingly.  oops.
+
+you can see the oscillation because now my ki term is effectively much higher.
+
+- p: 10
+- i: 1
+- period: 6000ms
+- set point: 407
+
+![](1517117846-run12/chart1.png)
+![](1517117846-run12/chart2.png)
+![](1517117846-run12/chart3.png)
+![](1517117846-run12/chart4.png)
+![](1517117846-run12/chart5.png)
+![](1517117846-run12/chart6.png)
+![](1517117846-run12/chart7.png)

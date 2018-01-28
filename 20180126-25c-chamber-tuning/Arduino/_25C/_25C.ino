@@ -7,7 +7,7 @@
 #define AMBIENT_SDA_PIN 12
 
 double kp = 10;
-double ki = 1;
+double ki = 0.3;
 double kd = 0;
 
 // note: the scale is about 88 ADC counts per degree C.
