@@ -274,3 +274,20 @@ another ki tweak.
 - period: 10000ms
 - set point: 406
 
+![](1517127795-run15/chart1.png)
+![](1517127795-run15/chart2.png)
+![](1517127795-run15/chart3.png)
+![](1517127795-run15/chart4.png)
+![](1517127795-run15/chart5.png)
+![](1517127795-run15/chart6.png)
+![](1517127795-run15/chart7.png)
+
+## run16
+
+On the last run we almost left our +/-0.01C band during an ambient excursion (when the A/C kicked on).  Let's split the difference on ki.
+
+- p: 10
+- i: 0.15
+- period: 10000ms
+- set point: 406
+
