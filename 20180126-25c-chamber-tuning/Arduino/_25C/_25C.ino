@@ -1,30 +1,38 @@
 #include "PID_v1.h"
 #include "Si7021.h"
 
-// note: the scale is about 88 ADC counts per degree C.
-// 29C corresponds to ADC value 759
-// 25C corresponds to ADC value 407
-// 23C corresponds to ADC value 231
-
-Weather internal;
+// --- user-configurable variables ---
 
 #define AMBIENT_SCL_PIN 11
 #define AMBIENT_SDA_PIN 12
-SoftwareWire ambientWire(AMBIENT_SDA_PIN, AMBIENT_SCL_PIN);
-Weather ambient(&ambientWire);
 
 double kp = 10;
 double ki = 1;
 double kd = 0;
 
+// note: the scale is about 88 ADC counts per degree C.
+// 29C corresponds to ADC value 759
+// 25C corresponds to ADC value 407
+// 23C corresponds to ADC value 231
+double setpoint = 407;
+
+uint16_t loop_period = 6000; // in ms
+
+// my external Si7021 reads higher than the internal Si7021
+float ambient_correction = -0.086;
+
+// ---
+
 double input;
 double output;
-double setpoint = 231;
+PID myPID(&input, &output, &setpoint, kp, ki, kd, DIRECT);
 
 uint32_t next_loop_start = 0;
-uint16_t loop_period = 3000; // in ms
 
-PID myPID(&input, &output, &setpoint, kp, ki, kd, DIRECT);
+Weather internal;
+
+SoftwareWire ambientWire(AMBIENT_SDA_PIN, AMBIENT_SCL_PIN);
+Weather ambient(&ambientWire);
 
 void setup() {
   // Tie the 3.3V pin to the AREF pin for a slightly cleaner AREF.
@@ -38,6 +46,7 @@ void setup() {
   ambient.begin();
   internal.begin();
 
+  myPID.SetSampleTime(loop_period);
   myPID.SetMode(AUTOMATIC);
 
   // print the csv header
@@ -53,9 +62,6 @@ double adc_to_degrees_c(double adc) {
   double lsb_per_c = 88.0;
   return c_origin + ((adc - lsb_offset) / lsb_per_c);
 }
-
-// the ambient Si7021 reads higher than the internal Si7021
-float ambient_correction = -0.086;
 
 void loop() {
 
@@ -73,7 +79,7 @@ void loop() {
   }
   input = double(accumulator) / double(samples);
 
-  myPID.Compute();
+  while (myPID.Compute() == false) { continue; }
   analogWrite(6, output);
 
 //  Serial.println(next_loop_start - millis()); // print out how much time margin was left
