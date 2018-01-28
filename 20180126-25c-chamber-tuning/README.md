@@ -298,3 +298,22 @@ let's revisit run14, but with a much longer period.
 - period: 30000ms
 - set point: 406
 
+
+![](1517144659-run17/chart1.png)
+![](1517144659-run17/chart2.png)
+![](1517144659-run17/chart3.png)
+![](1517144659-run17/chart4.png)
+![](1517144659-run17/chart5.png)
+![](1517144659-run17/chart6.png)
+![](1517144659-run17/chart7.png)
+
+wow, that didn't work.
+
+## run18
+
+let's revisit run14, but with a shorter period.
+
+- p: 10
+- i: 0.2
+- period: 3000ms
+- set point: 406

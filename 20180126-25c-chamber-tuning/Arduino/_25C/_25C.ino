@@ -16,7 +16,7 @@ double kd = 0;
 // 23C corresponds to ADC value 231
 double setpoint = 406;
 
-uint16_t loop_period = 30000; // in ms
+uint16_t loop_period = 3000; // in ms
 
 // my external Si7021 reads higher than the internal Si7021
 float ambient_correction = -0.086;
