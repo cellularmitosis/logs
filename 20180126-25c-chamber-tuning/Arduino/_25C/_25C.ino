@@ -7,14 +7,14 @@
 #define AMBIENT_SDA_PIN 12
 
 double kp = 10;
-double ki = 0.2;
+double ki = 0.1;
 double kd = 0;
 
 // note: the scale is about 88 ADC counts per degree C.
 // 29C corresponds to ADC value 759
 // 25C corresponds to ADC value 407
 // 23C corresponds to ADC value 231
-double setpoint = 407;
+double setpoint = 406;
 
 uint16_t loop_period = 10000; // in ms
 

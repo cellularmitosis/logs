@@ -272,5 +272,5 @@ another ki tweak.
 - p: 10
 - i: 0.1
 - period: 10000ms
-- set point: 407
+- set point: 406
 
