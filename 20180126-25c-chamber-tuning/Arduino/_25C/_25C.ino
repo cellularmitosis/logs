@@ -7,16 +7,16 @@
 #define AMBIENT_SDA_PIN 12
 
 double kp = 10;
-double ki = 0.1;
+double ki = 0.2;
 double kd = 0;
 
 // note: the scale is about 88 ADC counts per degree C.
 // 29C corresponds to ADC value 759
-// 25C corresponds to ADC value 407
+// 25C corresponds to ADC value 406
 // 23C corresponds to ADC value 231
 double setpoint = 406;
 
-uint16_t loop_period = 10000; // in ms
+uint16_t loop_period = 30000; // in ms
 
 // my external Si7021 reads higher than the internal Si7021
 float ambient_correction = -0.086;
@@ -58,7 +58,7 @@ void setup() {
 
 double adc_to_degrees_c(double adc) {
   double c_origin = 25.0;
-  double lsb_offset = 407.0;
+  double lsb_offset = 406.0;
   double lsb_per_c = 88.0;
   return c_origin + ((adc - lsb_offset) / lsb_per_c);
 }

@@ -90,9 +90,7 @@ hmm, the results seem to be junk (p=1.26, i=0).
 - set point: 405
 
 ![](1517076098-run3/si7021.png)
-
 ![](1517076098-run3/adc.png)
-
 ![](1517076098-run3/output.png)
 
 looks like I don't have enough Ki to steer the final correction.
@@ -107,9 +105,7 @@ bumping ki to 0.05.
 - set point: 408
 
 ![](1517078139-run4/si7021.png)
-
 ![](1517078139-run4/adc.png)
-
 ![](1517078139-run4/output.png)
 
 ## run5
@@ -122,9 +118,7 @@ bumping ki to 0.1.
 - set point: 407
 
 ![](1517082367-run5/si7021.png)
-
 ![](1517082367-run5/adc.png)
-
 ![](1517082367-run5/output.png)
 
 ## run6
@@ -137,9 +131,7 @@ modifying the arduino code to accumulate and average samples for as long as it c
 - set point: 407
 
 ![](1517087070-run6/si7021.png)
-
 ![](1517087070-run6/adc.png)
-
 ![](1517087070-run6/output.png)
 
 ## run7
@@ -152,13 +144,9 @@ bumping up the ki term.
 - set point: 407
 
 ![](1517088582-run7/si7021.png)
-
 ![](1517088582-run7/adc.png)
-
 ![](1517088582-run7/pwm.png)
-
 ![](1517088582-run7/error.png)
-
 ![](1517088582-run7/error_zoom.png)
 
 ## run8 series
@@ -289,5 +277,24 @@ On the last run we almost left our +/-0.01C band during an ambient excursion (wh
 - p: 10
 - i: 0.15
 - period: 10000ms
+- set point: 406
+
+
+![](1517131521-run16/chart1.png)
+![](1517131521-run16/chart2.png)
+![](1517131521-run16/chart3.png)
+![](1517131521-run16/chart4.png)
+![](1517131521-run16/chart5.png)
+![](1517131521-run16/chart6.png)
+![](1517131521-run16/chart7.png)
+
+
+## run17
+
+let's revisit run14, but with a much longer period.
+
+- p: 10
+- i: 0.2
+- period: 30000ms
 - set point: 406
 
