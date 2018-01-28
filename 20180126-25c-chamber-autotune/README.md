@@ -181,7 +181,7 @@ I hooked up a second Si7021 (with the idea of using it to track ambient temperat
 - period: 3000ms
 - set point: 228
 
-This was the first run I did where I also tracked the ambient temperature.  Swing in ambient temperature is essentially responsible for all of the swing in error.  It looks like the internal temperature variance is about 50x better than ambient variance.
+This was the first in which I also tracked the ambient temperature.  Swing in ambient temperature is essentially responsible for all of the swing in error.  It looks like the internal temperature variance is about 50x better than ambient variance.
 
 ![](1517103936-run10.2/chart1.png)
 
