@@ -257,3 +257,20 @@ let's tweak ki just a bit more, and try bumping up the period.
 - period: 10000ms
 - set point: 407
 
+![](1517124216-run14/chart1.png)
+![](1517124216-run14/chart2.png)
+![](1517124216-run14/chart3.png)
+![](1517124216-run14/chart4.png)
+![](1517124216-run14/chart5.png)
+![](1517124216-run14/chart6.png)
+![](1517124216-run14/chart7.png)
+
+## run15
+
+another ki tweak.
+
+- p: 10
+- i: 0.1
+- period: 10000ms
+- set point: 407
+
