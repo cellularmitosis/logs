@@ -151,6 +151,16 @@ bumping up the ki term.
 - period: 5000ms
 - set point: 407
 
+![](1517088582-run7/si7021.png)
+
+![](1517088582-run7/adc.png)
+
+![](1517088582-run7/pwm.png)
+
+![](1517088582-run7/error.png)
+
+![](1517088582-run7/error_zoom.png)
+
 ## run8 series
 
 bumping up the ki term, shortening the period, and testing at various set-points to get an ADC to Celcius mapping.
@@ -172,6 +182,20 @@ I hooked up a second Si7021 (with the idea of using it to track ambient temperat
 - set point: 228
 
 This was the first run I did where I also tracked the ambient temperature.  Swing in ambient temperature is essentially responsible for all of the swing in error.  It looks like the internal temperature variance is about 50x better than ambient variance.
+
+![](1517103936-run10.2/chart1.png)
+
+![](1517103936-run10.2/chart2.png)
+
+![](1517103936-run10.2/chart3.png)
+
+![](1517103936-run10.2/chart4.png)
+
+![](1517103936-run10.2/chart5.png)
+
+![](1517103936-run10.2/chart6.png)
+
+![](1517103936-run10.2/chart7.png)
 
 ## run11
 
