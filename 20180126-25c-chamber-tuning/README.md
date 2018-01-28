@@ -228,3 +228,32 @@ you can see the oscillation because now my ki term is effectively much higher.
 ![](1517117846-run12/chart5.png)
 ![](1517117846-run12/chart6.png)
 ![](1517117846-run12/chart7.png)
+
+## run13
+
+let's bring ki back down.
+
+- p: 10
+- i: 0.3
+- period: 6000ms
+- set point: 407
+
+![](1517120390-run13/chart1.png)
+![](1517120390-run13/chart2.png)
+![](1517120390-run13/chart3.png)
+![](1517120390-run13/chart4.png)
+![](1517120390-run13/chart5.png)
+![](1517120390-run13/chart6.png)
+![](1517120390-run13/chart7.png)
+
+OK!  Now we're getting somewhere!  Regulation within a 0.01C band!
+
+## run14
+
+let's tweak ki just a bit more, and try bumping up the period.
+
+- p: 10
+- i: 0.2
+- period: 10000ms
+- set point: 407
+

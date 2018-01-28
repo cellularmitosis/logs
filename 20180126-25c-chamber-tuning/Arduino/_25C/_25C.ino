@@ -7,7 +7,7 @@
 #define AMBIENT_SDA_PIN 12
 
 double kp = 10;
-double ki = 0.3;
+double ki = 0.2;
 double kd = 0;
 
 // note: the scale is about 88 ADC counts per degree C.
@@ -16,7 +16,7 @@ double kd = 0;
 // 23C corresponds to ADC value 231
 double setpoint = 407;
 
-uint16_t loop_period = 6000; // in ms
+uint16_t loop_period = 10000; // in ms
 
 // my external Si7021 reads higher than the internal Si7021
 float ambient_correction = -0.086;
