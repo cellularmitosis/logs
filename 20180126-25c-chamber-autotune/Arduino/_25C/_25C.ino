@@ -47,6 +47,13 @@ void setup() {
   next_loop_start = millis() + loop_period;
 }
 
+double adc_to_degrees_c(double adc) {
+  double c_origin = 25.0;
+  double lsb_offset = 407.0;
+  double lsb_per_c = 88.0;
+  return c_origin + ((adc - lsb_offset) / lsb_per_c);
+}
+
 // the ambient Si7021 reads higher than the internal Si7021
 float ambient_correction = -0.086;
 
@@ -55,7 +62,7 @@ void loop() {
   float ambient_c = ambient.getTemp() + ambient_correction;
   float internal_c = internal.getTemp();
 
-  // accumulate samples until we only have 50ms of margin left in this loop
+  // accumulate samples until we only have 50ms of time margin left in this loop
   uint32_t accumulator = 0;
   uint32_t samples = 0;
   while (next_loop_start - millis() > 50) {
@@ -64,7 +71,7 @@ void loop() {
     }
     samples += UINT8_MAX;
   }
-  input = double(accumulator) / double(samples);    
+  input = double(accumulator) / double(samples);
 
   myPID.Compute();
   analogWrite(6, output);
@@ -81,10 +88,10 @@ void loop() {
   Serial.print(",");
   Serial.print(input, 3);
   Serial.print(",");
-  float adc_c = 25.0 + ((input - 407.0) / 88.0);
+  float adc_c = adc_to_degrees_c(input);
   Serial.print(adc_c, 4);
   Serial.print(",");
-  float setpoint_c = 25.0 + ((setpoint - 407.0) / 88.0);
+  float setpoint_c = adc_to_degrees_c(setpoint);
   float error_c = adc_c - setpoint_c;
   Serial.print(error_c, 4);
   Serial.print(",");

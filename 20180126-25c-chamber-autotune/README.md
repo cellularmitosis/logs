@@ -184,17 +184,11 @@ I hooked up a second Si7021 (with the idea of using it to track ambient temperat
 This was the first in which I also tracked the ambient temperature.  Swing in ambient temperature is essentially responsible for all of the error.  It looks like the internal temperature variance is about 50x better than ambient variance.
 
 ![](1517103936-run10.2/chart1.png)
-
 ![](1517103936-run10.2/chart2.png)
-
 ![](1517103936-run10.2/chart3.png)
-
 ![](1517103936-run10.2/chart4.png)
-
 ![](1517103936-run10.2/chart5.png)
-
 ![](1517103936-run10.2/chart6.png)
-
 ![](1517103936-run10.2/chart7.png)
 
 ## run11
@@ -205,3 +199,11 @@ bumping ki to 1.0.
 - i: 1
 - period: 3000ms
 - set point: 231
+
+![](1517112317-run11/chart1.png)
+![](1517112317-run11/chart2.png)
+![](1517112317-run11/chart3.png)
+![](1517112317-run11/chart4.png)
+![](1517112317-run11/chart5.png)
+![](1517112317-run11/chart6.png)
+![](1517112317-run11/chart7.png)
