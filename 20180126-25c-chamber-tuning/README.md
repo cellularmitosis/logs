@@ -318,13 +318,13 @@ let's revisit run14, but with a shorter period.
 - period: 3000ms
 - set point: 406
 
-![](1517146930-run17/chart1.png)
-![](1517146930-run17/chart2.png)
-![](1517146930-run17/chart3.png)
-![](1517146930-run17/chart4.png)
-![](1517146930-run17/chart5.png)
-![](1517146930-run17/chart6.png)
-![](1517146930-run17/chart7.png)
+![](1517146930-run18/chart1.png)
+![](1517146930-run18/chart2.png)
+![](1517146930-run18/chart3.png)
+![](1517146930-run18/chart4.png)
+![](1517146930-run18/chart5.png)
+![](1517146930-run18/chart6.png)
+![](1517146930-run18/chart7.png)
 
 
 OK!  I'm pretty happy with that.  I ended up letting this run go much longer than normal (about 8 hours) and it looks like it (mostly) stayed within +/-0.01C the entire time.
