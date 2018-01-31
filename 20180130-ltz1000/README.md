@@ -21,3 +21,13 @@ same setup, but I removed the cotton balls from above the ltz's.
 
 just measuring ltz #4 now.
 
+## run 4:
+
+switching the power supply to a lipo running through a 7815.  still measuring ltz #4.
+
+during this run, I noticed that if I picked the 1590BB case up off of the aluminum foil and held it in my hand, it induced nearly 1mV offset.  whoa!
+
+## run 5:
+
+same as run 4, but without touching it.  (run 4 was remarkably stable before I started picking up the case).
+
