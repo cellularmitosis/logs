@@ -16,3 +16,8 @@ meter and ltz cases are sitting on a sheet of foil which is clipped to the chass
 
 same setup, but I removed the cotton balls from above the ltz's.
 
+
+## run 3:
+
+just measuring ltz #4 now.
+
