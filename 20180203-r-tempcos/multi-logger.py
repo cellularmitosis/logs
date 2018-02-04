@@ -50,7 +50,7 @@ if __name__ == "__main__":
 
     oven_out = open("oven-controller.csv", "w")
     tempco_out = open("tempco.csv", "w")
-    tempco_out.write("resistance,ppm,temp_c\n")
+    tempco_out.write("volts,ppm,temp_c,ambient_c\n")
     tempco_out.flush()
 
     last_hp_value = None
@@ -83,8 +83,9 @@ if __name__ == "__main__":
                 oven_out.flush()
 
                 c = float(line.rstrip().split(",")[1])
+                ambient = float(line.rstrip().split(",")[3])
                 ppm = (last_hp_value - base_r) / base_r * 1000000.0
-                tempco_out.write("%s,%0.2f,%s\n" % (last_hp_value, ppm, c))
+                tempco_out.write("%s,%0.2f,%s,%s\n" % (last_hp_value, ppm, c, ambient))
                 tempco_out.flush()
                 last_ppm = ppm
                 last_c = c
