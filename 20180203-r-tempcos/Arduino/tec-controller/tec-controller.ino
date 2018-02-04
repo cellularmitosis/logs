@@ -1,5 +1,9 @@
 #include "buffer.h"
 #include "PID_v1.h"
+#include "Si7021.h"
+#include "AnyWire.h"
+
+Weather ambient; // Si7021 sensor
 
 #define INPUT_PIN A0
 #define OUTPUT_PIN 3
@@ -320,6 +324,8 @@ void default_loop() {
 
 void program1_setup() {
 
+  ambient.begin();
+
   // Tie the 3.3V pin to the AREF pin for a slightly cleaner AREF.
   // Thanks to https://learn.adafruit.com/thermistor/using-a-thermistor
   // Update: actually, with an external filter that's too clean.  Using
@@ -333,6 +339,9 @@ void program1_setup() {
   Serial.begin(9600); // 9600 8N1
   clear_char_buffer(&buffer);
   read_ptr = buffer.bytes;
+
+  // print out the CSV header.
+  Serial.println("set_c,oven_c,output,ambient_c");
 
   //initialize the variables we're linked to
   setpoint = 512;
@@ -439,6 +448,8 @@ void program1_set_c() {
 void program1_loop() {
   program1_set_c();
 
+  float ambient_c = ambient.getTemp();
+
   read_sensor();
 
   if (pid_running) {
@@ -451,11 +462,13 @@ void program1_loop() {
   if (verbose) {
     float set_c = thermistor_adc_to_c(setpoint);
     Serial.print(set_c, 3);
-    Serial.print(", ");
+    Serial.print(",");
     float c = thermistor_adc_to_c(input);
     Serial.print(c, 3);
-    Serial.print(", ");
-    Serial.println(output);
+    Serial.print(",");
+    Serial.print(output);
+    Serial.print(",");
+    Serial.println(ambient_c, 3);
     Serial.flush();
   }
 
