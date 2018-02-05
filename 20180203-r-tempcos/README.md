@@ -33,4 +33,5 @@ well, the result looks like garbage.  oh, perhaps I need a capacitor across the 
 
 attempted to add a few more capacitors to filter EMI.  one across the shunt, one across the DUT, and one across the wires just before they enter the meter.
 
+the result is total garbage.
 
