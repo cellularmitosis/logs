@@ -12,4 +12,6 @@ VHP202Z 70K #1
 
 Si7021 records ambient temperature.
 
+oops, I mixed up program1 (one ramp) and program2 (multiple ramps up and down).
+
 
