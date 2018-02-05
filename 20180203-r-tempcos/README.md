@@ -28,3 +28,9 @@ the circuit is powered by a 2-cell lipo battery, using one cell for the LT6657 a
 initial setup before datalogging shows that this setup is prone to noise pickup.  I can move the reading around by dozens of microvolts just by adjusting where I stand.  that's enough to totally swamp my reading.
 
 well, the result looks like garbage.  oh, perhaps I need a capacitor across the feedback resistor.  derp.
+
+## run 6
+
+attempted to add a few more capacitors to filter EMI.  one across the shunt, one across the DUT, and one across the wires just before they enter the meter.
+
+
