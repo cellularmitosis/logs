@@ -14,4 +14,10 @@ Si7021 records ambient temperature.
 
 oops, I mixed up program1 (one ramp) and program2 (multiple ramps up and down).
 
+## run 3
+
+VHP202Z 70K #1
+
+this was an extended (~6 hour) run with multiple ramps up and down.
+
 
