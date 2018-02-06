@@ -8,6 +8,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.5
 - period: 1000ms
 - output limit: 65 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run1/chart.png)
 
@@ -19,6 +20,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 65 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run2/chart.png)
 
@@ -31,6 +33,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 65 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run3/chart.png)
 
@@ -42,6 +45,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 65 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run4/chart.png)
 
@@ -53,6 +57,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 65 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run5/chart.png)
 
@@ -64,6 +69,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 65 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run6/chart.png)
 
@@ -75,6 +81,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 65 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run7/chart.png)
 
@@ -86,6 +93,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.1
 - period: 1000ms
 - output limit: 65 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run8/chart.png)
 
@@ -97,6 +105,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.1
 - period: 1000ms
 - output limit: 65 (~360mA)
+- program: 60s @25C, 60s @26C
 
 ![](run9/chart.png)
 
@@ -108,6 +117,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run10/chart.png)
 
@@ -119,6 +129,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run11/chart.png)
 
@@ -130,6 +141,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run12/chart.png)
 
@@ -141,6 +153,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run13/chart.png)
 
@@ -152,6 +165,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run14/chart.png)
 
@@ -163,6 +177,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run15/chart.png)
 
@@ -174,6 +189,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run16/chart.png)
 
@@ -185,6 +201,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.0
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run17/chart.png)
 
@@ -196,6 +213,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.1
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run18/chart.png)
 
@@ -207,6 +225,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.2
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run19/chart.png)
 
@@ -219,6 +238,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.4
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run20/chart.png)
 
@@ -231,6 +251,7 @@ revisiting the tuning on my TEC chamber.
 - d: 0.8
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run21/chart.png)
 
@@ -242,6 +263,7 @@ revisiting the tuning on my TEC chamber.
 - d: 1.6
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run22/chart.png)
 
@@ -253,6 +275,7 @@ revisiting the tuning on my TEC chamber.
 - d: 3.2
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run23/chart.png)
 
@@ -264,6 +287,7 @@ revisiting the tuning on my TEC chamber.
 - d: 6.4
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run24/chart.png)
 
@@ -275,6 +299,7 @@ revisiting the tuning on my TEC chamber.
 - d: 12.8
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run25/chart.png)
 
@@ -286,6 +311,7 @@ revisiting the tuning on my TEC chamber.
 - d: 25.6
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run26/chart.png)
 
@@ -297,5 +323,18 @@ revisiting the tuning on my TEC chamber.
 - d: 51.2
 - period: 1000ms
 - output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
 
 ![](run27/chart.png)
+
+## run28
+
+- supply: 5V
+- p: 32.0
+- i: 0.0
+- d: 0.0
+- period: 1000ms
+- output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
+
+![](run28/chart.png)
