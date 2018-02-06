@@ -21,7 +21,7 @@ double cool_kd = 0.5; // warning: these are out of date
 
 // reasonable values for 5V with limit of 205:
 double heat_kp = 32.0;
-double heat_ki = 0.25;
+double heat_ki = 0.5;
 double heat_kd = 32.0;
 
 //double upper_limit = 65.0; // approximately 1000mA at 12V.
