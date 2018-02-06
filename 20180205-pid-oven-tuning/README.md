@@ -54,3 +54,12 @@ revisiting the tuning on my TEC chamber.
 - period: 1000ms
 
 ![](run6/chart.png)
+
+## run7
+
+- p: 4.0
+- i: 0.4
+- d: 0.0
+- period: 1000ms
+
+![](run7/chart.png)
