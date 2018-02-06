@@ -20,7 +20,7 @@ double cool_kd = 0.5; // warning: these are out of date
 //double heat_kd = 0.1;
 
 // reasonable values for 5V with limit of 205:
-double heat_kp = 4.0;
+double heat_kp = 16.0;
 double heat_ki = 0.0;
 double heat_kd = 0.0;
 
