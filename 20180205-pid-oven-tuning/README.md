@@ -363,3 +363,16 @@ revisiting the tuning on my TEC chamber.
 - program: 60s @25C, 60s @26C
 
 ![](run30/chart.png)
+
+
+## run31
+
+- supply: 5V
+- p: 32.0
+- i: 0.0
+- d: 8.0
+- period: 1000ms
+- output limit: 205 (~1000mA)
+- program: 60s @25C, 60s @26C
+
+![](run31/chart.png)
