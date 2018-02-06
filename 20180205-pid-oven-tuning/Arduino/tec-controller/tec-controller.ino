@@ -9,13 +9,13 @@ Weather ambient; // Si7021 sensor
 #define OUTPUT_PIN 3
 #define LED_PIN 13
 
-double cool_kp = 1.0;
-double cool_ki = 3.0;
-double cool_kd = 0.5;
+double cool_kp = 1.0; // warning: these are out of date
+double cool_ki = 3.0; // warning: these are out of date
+double cool_kd = 0.5; // warning: these are out of date
 
 // Note: use "reverse" controller direction for heating (and reverse TEC leads)
 double heat_kp = 4.0;
-double heat_ki = 0.0;
+double heat_ki = 0.1;
 double heat_kd = 0.0;
 
 double upper_limit = 65.0; // approximately 1000mA at 12V.
