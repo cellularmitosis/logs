@@ -10,9 +10,16 @@ VHP202Z 70K #2
 
 25C to 35C ramp in 1C steps, 5min/step.
 
-this was an extended (~6 hour) run with multiple ramps up and down.
+this was an extended (~8 hour) run with multiple ramps up and down.
 
 Si7021 records ambient temperature.
 
 ![](run1-VHP202Z-70K-2/chart.png)
 
+about -0.6ppm/C.
+
+## run 2
+
+VHP202Z 70K #3
+
+![](run2-VHP202Z-70K-3/chart.png)
