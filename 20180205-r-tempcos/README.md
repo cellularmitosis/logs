@@ -16,7 +16,7 @@ Si7021 records ambient temperature.
 
 ![](run1-VHP202Z-70K-2/chart.png)
 
-about -0.6ppm/C.
+about -0.6ppm/C, very similar to VHP202Z 70K #1.
 
 ## run 2
 
