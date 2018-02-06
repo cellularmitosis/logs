@@ -28,3 +28,11 @@ this was an extended (~6 hour) run with multiple ramps up and down.
 
 So, VHP202Z 70K #1 is somewhere between -0.5 and -0.55 ppm/C.
 
+# run 4
+
+VHP202Z 70K #2
+
+![](run4-VHP202Z-70K-2/chart.png)
+
+looks about the same as 70K #1, about -0.55ppm/C.
+
