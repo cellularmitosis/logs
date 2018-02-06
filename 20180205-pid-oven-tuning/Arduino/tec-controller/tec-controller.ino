@@ -20,9 +20,9 @@ double cool_kd = 0.5; // warning: these are out of date
 //double heat_kd = 0.1;
 
 // reasonable values for 5V with limit of 205:
-double heat_kp = 32.0;
-double heat_ki = 2.0;
-double heat_kd = 32.0;
+double heat_kp = 16.0;
+double heat_ki = 0.25;
+double heat_kd = 0.0;
 
 //double upper_limit = 65.0; // approximately 1000mA at 12V.
 double upper_limit = 205.0; // approximately 1000mA at 5V.
@@ -484,7 +484,7 @@ void programmed_setup() {
 
 
 void programmed_loop(float *program, uint8_t num_steps) {
-  static uint32_t step_interval = 1 * 60 * 1000ul; // 3 minutes per 1C step
+  static uint32_t step_interval = 5 * 60 * 1000ul; // 5 minutes per 1C step
   static int8_t current_step = -1;
 
   int8_t desired_step = int8_t(floor((millis() - start) / double(step_interval)));
