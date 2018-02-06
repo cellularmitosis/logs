@@ -244,3 +244,14 @@ revisiting the tuning on my TEC chamber.
 - output limit: 205 (~1000mA)
 
 ![](run22/chart.png)
+
+## run23
+
+- supply: 5V
+- p: 16.0
+- i: 2.0
+- d: 3.2
+- period: 1000ms
+- output limit: 205 (~1000mA)
+
+![](run23/chart.png)
