@@ -104,9 +104,9 @@ revisiting the tuning on my TEC chamber.
 
 - supply: 5V
 - p: 4.0
-- i: 0.4
-- d: 0.1
+- i: 0.0
+- d: 0.0
 - period: 1000ms
-- output limit:  (~1000mA)
+- output limit: 205 (~1000mA)
 
 ![](run10/chart.png)

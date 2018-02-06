@@ -14,11 +14,18 @@ double cool_ki = 3.0; // warning: these are out of date
 double cool_kd = 0.5; // warning: these are out of date
 
 // Note: use "reverse" controller direction for heating (and reverse TEC leads)
-double heat_kp = 4.0;
-double heat_ki = 0.4;
-double heat_kd = 0.1;
+// reasonable values for 12V with limit of 65:
+//double heat_kp = 4.0;
+//double heat_ki = 0.4;
+//double heat_kd = 0.1;
 
-double upper_limit = 65.0; // approximately 1000mA at 12V.
+// reasonable values for 5V with limit of 205:
+double heat_kp = 4.0;
+double heat_ki = 0.0;
+double heat_kd = 0.0;
+
+//double upper_limit = 65.0; // approximately 1000mA at 12V.
+double upper_limit = 205.0; // approximately 1000mA at 5V.
 double lower_limit = 0.0;
 
 // Note:
