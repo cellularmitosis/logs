@@ -16,7 +16,7 @@ double cool_kd = 0.5;
 // Note: use "reverse" controller direction for heating (and reverse TEC leads)
 double heat_kp = 7.0;
 double heat_ki = 0.75;
-double heat_kd = 0.75;
+double heat_kd = 0.5;
 
 double upper_limit = 255.0;
 double lower_limit = 0.0;
