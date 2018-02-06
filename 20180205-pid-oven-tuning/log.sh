@@ -2,5 +2,7 @@
 
 set -e -o pipefail
 
-./multi-logger.py /dev/tty.usbmodem1421 /dev/tty.usbserial-AH05Y104
+./trivial-serial.py /dev/tty.usbmodem1421 | tee tune.csv
 
+# followed by e.g.
+# cat tune.csv | grep -v debug > run2/tune.csv
