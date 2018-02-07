@@ -50,7 +50,7 @@ if __name__ == "__main__":
 
     oven_out = open("oven-controller.csv", "w")
     tempco_out = open("tempco.csv", "w")
-    tempco_out.write("volts,ppm,temp_c,ambient_c\n")
+    tempco_out.write("timestamp,resistance,ppm,temp_c,ambient_c\n")
     tempco_out.flush()
 
     last_hp_value = None
