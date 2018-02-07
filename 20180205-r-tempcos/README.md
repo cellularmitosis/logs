@@ -23,3 +23,6 @@ about -0.6ppm/C, very similar to VHP202Z 70K #1.
 VHP202Z 70K #3
 
 ![](run2-VHP202Z-70K-3/chart.png)
+
+similar, maybe -0.45ppm/C, but it is hard to tell because the signal is either slowly shifting or I am seeing some hystersis.  I'll try another run and see if it settles down.
+
