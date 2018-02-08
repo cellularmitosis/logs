@@ -474,6 +474,24 @@ float program2[] = {
   25.0,
 };
 
+// 1 hour at 25C (the first two segments are silent)
+float program3[] = {
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+};
+
 void programmed_setup() {
 
   ambient.begin();
@@ -582,6 +600,7 @@ void loop () {
 //  interactive_loop();
 //  programmed_loop(program0, sizeof(program0) / sizeof(float));
 //  programmed_loop(program1, sizeof(program1) / sizeof(float));
-  programmed_loop(program2, sizeof(program2) / sizeof(float));
+//  programmed_loop(program2, sizeof(program2) / sizeof(float));
+  programmed_loop(program3, sizeof(program3) / sizeof(float));
 }
 

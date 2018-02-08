@@ -3,6 +3,7 @@ more 4-wire mode with DUT in the TEC chamber, ramping from 25C to 35C, etc.
 - meter: 34401A in 4-wire mode.
 - chamber: Hammond 1590A with 12706 peltier, Arduino-based half-bridge controller.
 - power supply set to 5V.
+- each step is 1C and 5 minutes, with 30 minute plateaus at 25C and 35C.
 
 ## run 1
 
@@ -41,4 +42,18 @@ The signal does appear to be wandering, moreso than with the 70K resistors.  Aga
 VHP202Z 120R #2
 
 ![](run4-VHP202Z-120R-2/chart.png)
+
+
+## run 5
+
+VHP202Z 120R #2
+
+ok, let's see if we can get a handle on the drift of the meter / system-as-a-whole.
+
+let's just maintain 25C for one hour and see what we get.
+
+![](run5-VHP202Z-120R-2/chart.png)
+
+ok, so that's enough drift to account for the "wandering" I'm seeing in the above charts.  good to know.
+
 

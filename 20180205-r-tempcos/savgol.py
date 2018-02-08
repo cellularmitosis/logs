@@ -7,5 +7,7 @@ import pandas as pd
 import scipy.signal
 
 df = pd.read_csv(sys.argv[-1])
-df["savgol_151_2"] = scipy.signal.savgol_filter(df["ppm"], 151, 2)
+window=151
+order=2
+df["Savitzky-Golay (%s,%s)" % (window, order)] = scipy.signal.savgol_filter(df["PPM"], window, order)
 df.to_csv("savgol.csv", index=False)
