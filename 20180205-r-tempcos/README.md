@@ -54,7 +54,7 @@ let's just maintain 25C for one hour and see what we get.
 
 ![](run5-VHP202Z-120R-2/chart.png)
 
-ok, so that's enough drift to account for the "wandering" I'm seeing in the above charts.  good to know.
+ok, so that accounts for at least some of the "wandering" I'm seeing in the above charts.  good to know.
 
 here's the same chart with the ambient variance zoomed-in.
 
