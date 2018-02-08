@@ -59,3 +59,10 @@ ok, so that accounts for at least some of the "wandering" I'm seeing in the abov
 here's the same chart with the ambient variance zoomed-in.
 
 ![](run5-VHP202Z-120R-2/chart-zoomed.png)
+
+## run 6
+
+VHP202Z 120R #2
+
+starting a longer run (7 up/down cycles, ~19 hours).
+
