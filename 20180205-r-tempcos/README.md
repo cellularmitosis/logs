@@ -70,3 +70,10 @@ oops, after 127 steps the program got stuck, because I used an int8_t.  drat.
 
 ![](run6-VHP202Z-120R-2/chart.png)
 
+## run 7
+
+VHP202Z 120R #3
+
+![](run7-VHP202Z-120R-3/chart.png)
+
+
