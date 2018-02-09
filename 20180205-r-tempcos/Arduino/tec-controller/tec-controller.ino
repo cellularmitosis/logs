@@ -603,7 +603,7 @@ float program4[] = {
   25.0,
   25.0,
 
-    26.0,
+  26.0,
   27.0,
   28.0,
   29.0,
@@ -770,11 +770,11 @@ void programmed_setup() {
 }
 
 
-void programmed_loop(float *program, uint8_t num_steps) {
+void programmed_loop(float *program, uint16_t num_steps) {
   static uint32_t step_interval = 5 * 60 * 1000ul; // 5 minutes per 1C step
-  static int8_t current_step = -1;
+  static int16_t current_step = -1;
 
-  int8_t desired_step = int8_t(floor((millis() - start) / double(step_interval)));
+  int16_t desired_step = int16_t(floor((millis() - start) / double(step_interval)));
 
   // end of program.
   if (desired_step == num_steps) {

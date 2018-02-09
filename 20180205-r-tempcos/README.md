@@ -66,3 +66,7 @@ VHP202Z 120R #2
 
 starting a longer run (7 up/down cycles, ~19 hours).
 
+oops, after 127 steps the program got stuck, because I used an int8_t.  drat.
+
+![](run6-VHP202Z-120R-2/chart.png)
+
