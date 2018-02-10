@@ -90,3 +90,15 @@ A second run of VHP202Z 120R #3.
 
 About -0.4ppm/C.
 
+## run 9
+
+VHD200 12.5k/1k divider #1
+
+Testing the tempco of the 1k resistor in this divider.
+
+![](run9-VHD200-12.5k_1k-1-1k/chart.png)
+
+Two observations:
+- Whoa, what a low noise signal!  Fantastic!
+- It looks like there was insufficient thermal coupling -- the ppm response lags behind the thermal set point.  Did the resistor come loose before the test started?
+
