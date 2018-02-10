@@ -37,12 +37,15 @@ I had anticipated that the 120R result would be much noisier (it is very low in 
 
 The signal does appear to be wandering, moreso than with the 70K resistors.  Again, I'm not sure if this is the meter wandering, or if this represents actual hystersis of the resistor.  Performing a multi-day run with perhaps 10 ramps up and down would be useful.
 
+About -0.9ppm/C.
+
 ## run 4
 
 VHP202Z 120R #2
 
 ![](run4-VHP202Z-120R-2/chart.png)
 
+About -1.0ppm/C.
 
 ## run 5
 
@@ -75,6 +78,8 @@ oops, after 127 steps the program got stuck, because I used an int8_t.  drat.
 VHP202Z 120R #3
 
 ![](run7-VHP202Z-120R-3/chart.png)
+
+Perhaps as good as -0.35ppm/C.  Significantly better than 120R #1 and #2.
 
 
 ## run 8
