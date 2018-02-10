@@ -77,3 +77,11 @@ VHP202Z 120R #3
 ![](run7-VHP202Z-120R-3/chart.png)
 
 
+## run 8
+
+A second run of VHP202Z 120R #3.
+
+![](run8-VHP202Z-120R-3/chart.png)
+
+About -0.4ppm/C.
+
