@@ -904,7 +904,7 @@ void programmed_setup() {
 
 
 void programmed_loop(float *program, uint16_t num_steps) {
-  static uint32_t step_interval = 15 * 60 * 1000ul; // 15 minutes per 1C step
+  static uint32_t step_interval = 5 * 60 * 1000ul; // 5 minutes per 1C step
   static int16_t current_step = -1;
 
   int16_t desired_step = int16_t(floor((millis() - start) / double(step_interval)));
@@ -983,7 +983,8 @@ void loop () {
 //  programmed_loop(program0, sizeof(program0) / sizeof(float));
 //  programmed_loop(program1, sizeof(program1) / sizeof(float));
 //  programmed_loop(program2, sizeof(program2) / sizeof(float));
-  programmed_loop(program3, sizeof(program3) / sizeof(float));
+//  programmed_loop(program3, sizeof(program3) / sizeof(float));
 //  programmed_loop(program4, sizeof(program4) / sizeof(float));
+  programmed_loop(program5, sizeof(program5) / sizeof(float));
 }
 

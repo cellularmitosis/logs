@@ -92,9 +92,7 @@ About -0.4ppm/C.
 
 ## run 9
 
-VHD200 12.5k/1k divider #1
-
-Testing the tempco of the 1k resistor in this divider.
+VHD200 12.5k/1k divider #1 (1k under test)
 
 ![](run9-VHD200-12.5k_1k-1-1k/chart.png)
 
@@ -104,11 +102,19 @@ Two observations:
 
 ## run 10
 
-VHD200 12.5k/1k divider #1
+VHD200 12.5k/1k divider #1 (1k under test)
 
 Let's try extending the duration of each step.  Here, each step is 15 minutes, and each plateau is 1.5 hours.
 
 ![](run10-VHD200-12.5k_1k-1-1k/chart.png)
 
-I don't think my system is equiped to measure the tempco of this resistor.
+I don't think my system is equiped to measure the tempco of this resistor.  The temperature in the room decreased significantly towards the end of the graph (we had a cold front in Austin last night and it got down to 30F), and I suspect this is visible in the resistor's rise towards the end.
+
+My best guess between the last graph and this one would be -0.3ppm/C.
+
+## run 11
+
+VHD200 12.5k/1k divider #1 (12.5k under test)
+
+![](run11-VHD200-12.5k_1k-1-12.5k/chart.png)
 
