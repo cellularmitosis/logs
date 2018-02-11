@@ -102,3 +102,13 @@ Two observations:
 - Whoa, what a low noise signal!  Fantastic!
 - It looks like there was insufficient thermal coupling -- the ppm response lags behind the thermal set point.  Did the resistor come loose before the test started?
 
+## run 10
+
+VHD200 12.5k/1k divider #1
+
+Let's try extending the duration of each step.  Here, each step is 15 minutes, and each plateau is 1.5 hours.
+
+![](run10-VHD200-12.5k_1k-1-1k/chart.png)
+
+I don't think my system is equiped to measure the tempco of this resistor.
+
