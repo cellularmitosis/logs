@@ -118,3 +118,17 @@ VHD200 12.5k/1k divider #1 (12.5k under test)
 
 ![](run11-VHD200-12.5k_1k-1-12.5k/chart.png)
 
+## run 12
+
+don't remember what this was?  a repeat of run 11?
+
+## run 13
+
+repeat of run 12.
+
+## run 14
+
+VHD200 12.5k/1k divider #1 (12.5k under test)
+
+Temperature controller set to constant 25C, but varied ambient temperature by opening a window during a cold front.
+
