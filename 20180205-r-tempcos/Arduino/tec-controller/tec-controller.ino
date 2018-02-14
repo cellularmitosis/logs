@@ -983,8 +983,8 @@ void loop () {
 //  programmed_loop(program0, sizeof(program0) / sizeof(float));
 //  programmed_loop(program1, sizeof(program1) / sizeof(float));
 //  programmed_loop(program2, sizeof(program2) / sizeof(float));
-//  programmed_loop(program3, sizeof(program3) / sizeof(float));
+  programmed_loop(program3, sizeof(program3) / sizeof(float));
 //  programmed_loop(program4, sizeof(program4) / sizeof(float));
-  programmed_loop(program5, sizeof(program5) / sizeof(float));
+//  programmed_loop(program5, sizeof(program5) / sizeof(float));
 }
 
