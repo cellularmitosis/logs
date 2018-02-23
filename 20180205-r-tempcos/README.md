@@ -73,6 +73,8 @@ oops, after 127 steps the program got stuck, because I used an int8_t.  drat.
 
 ![](run6-VHP202Z-120R-2/chart.png)
 
+Interestingly, it appears you can see the influence of the ambient temperature on the resistor under test, if you look at the tail part of the data (where the temperature was held constant).  I believe this is due to the temperature regulation circuit's temperature coefficient.
+
 ## run 7
 
 VHP202Z 120R #3
@@ -118,17 +120,23 @@ VHD200 12.5k/1k divider #2 (12.5k under test)
 
 ![](run11-VHD200-12.5k_1k-2-12.5k/chart.png)
 
+About -0.6ppm/C.
+
 ## run 12
 
-this was a repeat of run 11, I think.
+This was a repeat of run 11.
 
 ![](run12-VHD200-12.5k_1k-2-12.5k/chart.png)
 
+About -0.6ppm/C.
+
 ## run 13
 
-yet another repeat of run 11, I think.
+Yet another repeat of run 11.
 
 ![](run13-VHD200-12.5k_1k-2-12.5k/chart.png)
+
+About -0.6ppm/C.
 
 ## run 14
 
@@ -144,6 +152,7 @@ VHD200 12.5k/1k divider #1 (1k under test)
 
 ![](run15-VHD200-12.5k_1k-1-1k/chart.png)
 
+About -0.6ppm/C.
 
 ## run 16
 
@@ -151,16 +160,19 @@ VHD200 12.5k/1k divider #1 (12.5k under test)
 
 ![](run16-VHD200-12.5k_1k-1-12.5k/chart.png)
 
+About -0.7ppm/C.
+
 ## run 17
 
 VHD200 12.5k/1k divider #3 (1k under test)
 
 ![](run17-VHD200-12.5k_1k-3-1k/chart.png)
 
+About -0.6ppm/C.
 
 ## run 18
 
 VHD200 12.5k/1k divider #3 (12.5k under test)
 
-![](run17-VHD200-12.5k_1k-3-12.5k/chart.png)
+![](run18-VHD200-12.5k_1k-3-12.5k/chart.png)
 
