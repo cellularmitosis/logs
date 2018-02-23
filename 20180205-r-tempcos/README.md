@@ -120,25 +120,47 @@ VHD200 12.5k/1k divider #2 (12.5k under test)
 
 ## run 12
 
-don't remember what this was?  a repeat of run 11?
+this was a repeat of run 11, I think.
+
+![](run12-VHD200-12.5k_1k-2-12.5k/chart.png)
 
 ## run 13
 
-repeat of run 12.
+yet another repeat of run 11, I think.
+
+![](run13-VHD200-12.5k_1k-2-12.5k/chart.png)
 
 ## run 14
 
 VHD200 12.5k/1k divider #2 (12.5k under test)
 
-Temperature controller set to constant 25C, but varied ambient temperature by opening a window during a cold front.
+This was a static hold at 25C for almost 12 hours.
+
+![](run14-VHD200-12.5k_1k-2-12.5k/chart.png)
 
 ## run 15
 
 VHD200 12.5k/1k divider #1 (1k under test)
 
+![](run15-VHD200-12.5k_1k-1-1k/chart.png)
+
+
 ## run 16
 
 VHD200 12.5k/1k divider #1 (12.5k under test)
 
-Just one ramp up and down.
+![](run16-VHD200-12.5k_1k-1-12.5k/chart.png)
+
+## run 17
+
+VHD200 12.5k/1k divider #3 (1k under test)
+
+![](run17-VHD200-12.5k_1k-3-1k/chart.png)
+
+
+## run 18
+
+VHD200 12.5k/1k divider #3 (12.5k under test)
+
+![](run17-VHD200-12.5k_1k-3-12.5k/chart.png)
 
