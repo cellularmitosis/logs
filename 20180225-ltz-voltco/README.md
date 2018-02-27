@@ -28,9 +28,21 @@ Varying LTZ #4 voltage from 15.0V to 9.0V, in steps of 0.1V every 120 seconds.
 
 This run is to measure the PSRR of LTZ #4.
 
+![](run3-1519628472/chart-ltz.png)
+
+![](run3-1519628472/chart-supply.png)
+
+![](run3-1519628472/chart-temp-c.png)
+
+
 ## run 4:
 
 This time varying from 18.0V to 9.0V in 0.1V steps every 60 seconds.
 
 I have also introduced an opto-isolator inbetween the laptop and the LM317, so the LTZ's should be floating now.  I have verified that the USB shield of the laptop is in fact connected directly to the ground terminal of my wall outlet when my laptop is plugged in.
 
+![](run4-1519715191/chart-ltz.png)
+
+![](run4-1519715191/chart-supply.png)
+
+![](run4-1519715191/chart-temp-c.png)
