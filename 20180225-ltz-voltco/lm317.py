@@ -16,10 +16,10 @@ ser = serial.Serial(
 sys.stdout.write("timestamp,v\n")
 
 current = None
-upper = 15.0
+upper = 18.0
 lower = 9.0
 step = 0.1
-period = 120
+period = 60
 
 while True:
     current = upper
