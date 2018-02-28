@@ -46,3 +46,21 @@ I have also introduced an opto-isolator inbetween the laptop and the LM317, so t
 ![](run4-1519715191/chart-supply.png)
 
 ![](run4-1519715191/chart-temp-c.png)
+
+## run 5:
+
+Repeat of run 4, but during the day while I was at work.
+
+This time I used a `sleep 120` command before starting the logs, which gave me
+enough time to leave the room and for the laptop's display to turn off, and this
+seems to have cleared up the leading noise from the charts.
+
+You can see when the A/C started cycling on as it warmed up towards the afternoon.
+
+
+![](run5-1519746880/chart-ltz.png)
+
+![](run5-1519746880/chart-supply.png)
+
+![](run5-1519746880/chart-temp-c.png)
+
