@@ -1,9 +1,4 @@
-#include <util/crc16.h>
-
-void setup() {
-  //Initialize serial and wait for port to open:
-  Serial.begin(9600);
-}
+#include "crc.h"
 
 uint16_t crc16(uint8_t *data, uint16_t len) {
   uint16_t crc = 0;
@@ -44,15 +39,3 @@ char* csv_append_hex_crc16(uint16_t crc, char *buf) {
   *buf = '\0';
   return buf;
 }
-
-void loop() {
-  char buf[15]; // e.g. "123456789,ffff\0"
-  char *ptr = buf;
-  ptr += snprintf(ptr, sizeof(buf), "123456789");
-  uint16_t crc = crc16(buf, strlen(buf));
-  ptr = csv_append_hex_crc16(crc, ptr);
-  Serial.println(buf);
-  
-  delay(1000);
-}
-
