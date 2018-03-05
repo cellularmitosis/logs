@@ -1,6 +1,9 @@
 #include "crc.h"
 #include "Si7021.h"
 
+// Average together this many samples.
+uint8_t oversample = 16;
+
 Weather ambient; // Si7021 sensor
 
 void setup() {
@@ -19,8 +22,14 @@ void setup() {
 }
 
 void loop() {
-  float ambient_c = ambient.getTemp();
-  float ambient_rh = ambient.getRH();
+  double rh_accumulator = 0;
+  double c_accumulator = 0;
+  for(uint8_t i=0; i < oversample; i++) {
+    rh_accumulator += ambient.getRH();
+    c_accumulator += ambient.readTemp();
+  }
+  float ambient_rh = rh_accumulator / oversample; 
+  float ambient_c = c_accumulator / oversample; 
 
   char buf[32];
   char *ptr = buf;
@@ -36,7 +45,5 @@ void loop() {
   uint16_t crc = crc16(buf, strlen(buf));
   ptr = csv_append_hex_crc16(crc, ptr);
   Serial.println(buf);
-  
-  delay(1000);
 }
 
