@@ -49,3 +49,16 @@ GenRad 1434-P **2k** resistance **card #1, resistor #3**.
 
 About -5.6ppm/C.
 
+## run 5
+
+GenRad 1434-P **2k** resistance **card #1, resistor #3**, with hand-made copper wire resistor for tempco compensation.
+
+- copper wire resistor is 31 inches of 40AWG magnet wire wrapped around a 10meg resistor, in series with the 2k resistor.
+- 30-minute plateau at 35C.
+
+![](run5/chart.png)
+
+![](run5/chart-zoomed.png)
+
+As expected, there is some thermal lag between the two resistors, but after the temperature stabilizes, the tempco appears to be beneath the drift of my measurement system (probably 0.5ppm/C).  Pretty neat!
+
