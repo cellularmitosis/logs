@@ -1,13 +1,13 @@
 more 4-wire mode with DUT in the TEC chamber, ramping from 25C to 35C, etc.
 
-- meter: 34401A in 4-wire mode.
+- meter: 34401A in 4-wire mode, slow 6-digit.
 - chamber: Hammond 1590A with 12706 peltier, Arduino-based half-bridge controller.
 - power supply set to 5V.
 - Si7021 records ambient temperature.
 
 ## run 1
 
-GenRad 1434-P 2k resistance card #1, resistor #1.
+GenRad 1434-P **2k** resistance **card #1, resistor #1**.
 
 - 1 minute/C, with 6 minute plateaus at 25C and 35C.
 
@@ -21,7 +21,7 @@ hmm, looks like I've got a bit of instability in my oven's PID loop:
 
 ## run 2
 
-GenRad 1434-P 2k resistance card #1, resistor #1.
+GenRad 1434-P **2k** resistance **card #1, resistor #1**.
 
 - 1 minute/C, with 24-minute plateaus at 25C and 35C.
 
@@ -29,7 +29,7 @@ GenRad 1434-P 2k resistance card #1, resistor #1.
 
 ## run 3
 
-GenRad 1434-P 2k resistance card #1, resistor #2.
+GenRad 1434-P **2k** resistance **card #1, resistor #2**.
 
 - 5 minute/C, with 30-minute plateaus at 25C and 35C.
 
