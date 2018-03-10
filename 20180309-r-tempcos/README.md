@@ -15,3 +15,7 @@ This was just a quick run to verify my setup and to see if the tempco was negati
 
 ![](run1/chart.png)
 
+hmm, looks like I've got a bit of instability in my oven's PID loop:
+
+![](run1/oven.png)
+
