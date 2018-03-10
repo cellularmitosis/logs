@@ -9,7 +9,7 @@ more 4-wire mode with DUT in the TEC chamber, ramping from 25C to 35C, etc.
 
 GenRad 1434-P 2k resistance card #1, resistor #1.
 
-- 1C/minute, with 6 minute plateaus at 25C and 35C.
+- 1 minute/C, with 6 minute plateaus at 25C and 35C.
 
 This was just a quick run to verify my setup and to see if the tempco was negative.
 
@@ -18,4 +18,12 @@ This was just a quick run to verify my setup and to see if the tempco was negati
 hmm, looks like I've got a bit of instability in my oven's PID loop:
 
 ![](run1/oven.png)
+
+## run 2
+
+GenRad 1434-P 2k resistance card #1, resistor #1.
+
+- 1 minute/C, with 24-minute plateaus at 25C and 35C.
+
+![](run2/chart.png)
 
