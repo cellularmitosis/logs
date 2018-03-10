@@ -11,3 +11,4 @@ hp=/dev/ttyUSB0
 ../multi-logger.py $arduino $hp
 ../savgol.py tempco.csv
 mv savgol.csv tempco.csv
+play ../../plotting-scripts/airhorn.wav

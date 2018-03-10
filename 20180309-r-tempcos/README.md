@@ -38,3 +38,14 @@ GenRad 1434-P **2k** resistance **card #1, resistor #2**.
 ![](run3/chart.png)
 
 About -6.3ppm/C.
+
+## run 4
+
+GenRad 1434-P **2k** resistance **card #1, resistor #3**.
+
+- 30-minute plateau at 35C.
+
+![](run4/chart.png)
+
+About -5.6ppm/C.
+
