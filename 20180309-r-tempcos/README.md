@@ -27,3 +27,10 @@ GenRad 1434-P 2k resistance card #1, resistor #1.
 
 ![](run2/chart.png)
 
+## run 3
+
+GenRad 1434-P 2k resistance card #1, resistor #2.
+
+- 5 minute/C, with 30-minute plateaus at 25C and 35C.
+
+![](run3/chart.png)

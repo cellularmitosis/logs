@@ -9,16 +9,6 @@ Weather ambient; // Si7021 sensor
 #define OUTPUT_PIN 9
 #define LED_PIN 13
 
-double cool_kp = 1.0; // warning: these are out of date
-double cool_ki = 3.0; // warning: these are out of date
-double cool_kd = 0.5; // warning: these are out of date
-
-// Note: use "reverse" controller direction for heating (and reverse TEC leads)
-// reasonable values for 12V with limit of 65:
-//double heat_kp = 4.0;
-//double heat_ki = 0.4;
-//double heat_kd = 0.1;
-
 // reasonable values for 5V with limit of 205:
 double heat_kp = 16.0;
 double heat_ki = 0.25;
@@ -41,169 +31,9 @@ uint32_t time = 0;
 uint32_t start = 0;
 uint32_t next_loop_start = 0;
 
-bool pid_running = true;
 bool verbose = true;
 
 PID myPID(&input, &output, &setpoint, heat_kp, heat_ki, heat_kd, REVERSE);
-
-#define BUFF_LEN 32
-char buffer_bytes[BUFF_LEN];
-char_buffer_t buffer = { .len = BUFF_LEN, .bytes = buffer_bytes };
-char *read_ptr;
-
-void process_command() {
-  /* example command input:
-   *  p1.23\n   set Kp to 1.23
-   *  i1.23\n   set Ki to 1.23
-   *  d1.23\n   set Kd to 1.23
-   *  t123.4\n  set the setpoint to ADC value 123.4
-   *  c30.0\n   set the setpoint to 30.0 degress Celsius
-   *  u255.0\n  set the upper output limit to 255.0
-   *  l0.0\n    set the lower output limit to 0.0
-   *  start\n   start the control loop
-   *  stop\n    stop the control loop
-   *  f\n       set controller to "forward" (direct) action
-   *  r\n       set controller to "reverse" action
-   *  V\n       verbose mode on (log the input and output via serial)
-   *  v\n       verbose mode off
-   *  ?\n       status dump
-   */
-  char command = buffer.bytes[0];
-  switch (command) {
-    case 'p':
-      if (myPID.GetDirection() == DIRECT) {
-        cool_kp = atof(buffer.bytes+1);
-        myPID.SetTunings(cool_kp, cool_ki, cool_kd);
-        Serial.print("Kp: ");
-        Serial.println(cool_kp, 4);
-      } else if (myPID.GetDirection() == REVERSE) {
-        heat_kp = atof(buffer.bytes+1);
-        myPID.SetTunings(heat_kp, heat_ki, heat_kd);
-        Serial.print("Kp: ");
-        Serial.println(heat_kp, 4);
-      }
-      break;
-    case 'i':
-      if (myPID.GetDirection() == DIRECT) {
-        cool_ki = atof(buffer.bytes+1);
-        myPID.SetTunings(cool_kp, cool_ki, cool_kd);
-        Serial.print("Ki: ");
-        Serial.println(cool_ki, 4);
-      } else if (myPID.GetDirection() == REVERSE) {
-        heat_ki = atof(buffer.bytes+1);
-        myPID.SetTunings(heat_kp, heat_ki, heat_kd);
-        Serial.print("Ki: ");
-        Serial.println(heat_ki, 4);
-      }
-      break;
-    case 'd':
-      if (myPID.GetDirection() == DIRECT) {
-        cool_kd = atof(buffer.bytes+1);
-        myPID.SetTunings(cool_kp, cool_ki, cool_kd);
-        Serial.print("Kd: ");
-        Serial.println(cool_kd, 4);
-      } else if (myPID.GetDirection() == REVERSE) {
-        heat_kd = atof(buffer.bytes+1);
-        myPID.SetTunings(heat_kp, heat_ki, heat_kd);
-        Serial.print("Kd: ");
-        Serial.println(heat_kd, 4);
-      }
-      break;
-    case 't':
-      setpoint = atof(buffer.bytes+1);
-      Serial.print("set: ");
-      Serial.println(setpoint, 2);
-      break;
-    case 'c':
-      setpoint = thermistor_c_to_adc(atof(buffer.bytes+1));
-      Serial.print("set: ");
-      Serial.println(setpoint, 2);
-      break;
-    case 'u':
-      upper_limit = atof(buffer.bytes+1);
-      myPID.SetOutputLimits(lower_limit, upper_limit);
-      Serial.print("upper limit: ");
-      Serial.println(upper_limit, 2);
-      break;
-    case 'l':
-      lower_limit = atof(buffer.bytes+1);
-      myPID.SetOutputLimits(lower_limit, upper_limit);
-      Serial.print("lower_limit: ");
-      Serial.println(lower_limit, 2);
-      break;
-    case 's':
-      if (buffer.bytes[2] == 'a') {
-        Serial.println("starting");
-        start_pid();
-      } else if (buffer.bytes[2] == 'o') {
-        Serial.println("stopping");
-        stop_pid();
-      }
-      break;
-    case 'f':
-      myPID.SetControllerDirection(DIRECT);
-      myPID.SetTunings(cool_kp, cool_ki, cool_kd);
-      Serial.println("forward");
-      break;
-    case 'r':
-      myPID.SetControllerDirection(REVERSE);
-      myPID.SetTunings(heat_kp, heat_ki, heat_kd);
-      Serial.println("reverse");
-      break;
-    case 'V':
-      verbose = true;
-      break;
-    case 'v':
-      verbose = false;
-      break;
-    case '?':
-      pid_running ? Serial.println("PID running") : Serial.println("PID stopped");
-      Serial.print("heat Kp: ");
-      Serial.println(heat_kp, 4);
-      Serial.print("heat Ki: ");
-      Serial.println(heat_ki, 4);
-      Serial.print("heat Kd: ");
-      Serial.println(heat_kd, 4);
-      Serial.print("cool Kp: ");
-      Serial.println(cool_kp, 4);
-      Serial.print("cool Ki: ");
-      Serial.println(cool_ki, 4);
-      Serial.print("cool Kd: ");
-      Serial.println(cool_kd, 4);
-      Serial.print("set: ");
-      Serial.print(setpoint, 2);
-      Serial.print(" (");
-      Serial.print(thermistor_adc_to_c(setpoint));
-      Serial.println("C)");
-      Serial.print("upper limit: ");
-      Serial.println(upper_limit, 2);
-      Serial.print("lower_limit: ");
-      Serial.println(lower_limit, 2);
-      if (myPID.GetDirection() == DIRECT) {
-        Serial.println("forward");
-      } else if (myPID.GetDirection() == REVERSE) {
-        Serial.println("reverse");
-      }
-      Serial.print("input: ");
-      Serial.println(input, 2);
-      Serial.print("output: ");
-      Serial.println(output, 2);
-      Serial.flush();
-      break;
-  }
-
-  // Reset the input buffer.
-  clear_char_buffer(&buffer);
-  read_ptr = buffer.bytes;
-}
-
-void start_pid() {
-  pid_running = true;
-}
-
-void stop_pid() {
-  pid_running = false;  
-}
 
 // thermistor used: Vishay NTCLG100E2103JB
 // http://www.vishay.com/docs/29050/ntclg100.pdf
@@ -247,89 +77,8 @@ void toggle_led() {
   }
 }
 
-void interactive_setup() {
-
-  // Tie the 3.3V pin to the AREF pin for a slightly cleaner AREF.
-  // Thanks to https://learn.adafruit.com/thermistor/using-a-thermistor
-  // Update: actually, with my additional filtering, this ended up being too clean,
-  // causing "stair steps" despite oversampling.  Hook it up to the (noisy) 5V instead.
-  analogReference(EXTERNAL);
-  
-  pinMode(INPUT_PIN, INPUT);
-  pinMode(OUTPUT_PIN, OUTPUT);
-  pinMode(LED_PIN, OUTPUT);
-  
-  Serial.begin(9600); // 9600 8N1
-  clear_char_buffer(&buffer);
-  read_ptr = buffer.bytes;
-
-  myPID.SetSampleTime(loop_period);
-  myPID.SetMode(AUTOMATIC);
-
-  time = millis();
-
-  Serial.println("tec-controller");
-}
-
-void interactive_loop() {
-
-  // If we have serial input waiting, deal with it.
-  if (Serial.available() > 0) {
-    char ch = Serial.read();
-    if (ch == '\r' || ch == '\n') {
-      // If this was the end of a serial command, terminate the buffer and process the command.
-      *read_ptr = '\0';
-      process_command();
-      return;
-    } else {
-      // Otherwise just add it to the input buffer.
-      *read_ptr = ch;
-      read_ptr++;
-      return;
-    }
-  }
-
-  // accumulate samples until we only have 50ms of time margin left in this loop
-  uint32_t accumulator = 0;
-  uint32_t samples = 0;
-  while (next_loop_start - millis() > 50) {
-    for (uint8_t i = 0; i < UINT8_MAX; i++) {
-      accumulator += analogRead(INPUT_PIN);
-    }
-    samples += UINT8_MAX;
-  }
-  input = double(accumulator) / double(samples);
-
-  while (myPID.Compute() == false) { continue; }
-
-  if (pid_running) {
-    analogWrite(OUTPUT_PIN, output);
-  } else {
-    analogWrite(OUTPUT_PIN, 0);
-  }
-
-  if (verbose) {
-    Serial.print("i: ");
-    Serial.print(input);
-    Serial.print(" o: ");
-    Serial.print(output);
-    float c = thermistor_adc_to_c(input);
-    Serial.print(" c: ");
-    Serial.println(c);
-    Serial.flush();
-  }
-
-//  Serial.println(millis() - time);
-  while (millis() - time < loop_period) {
-    delay(1);
-  }
-  time += loop_period;
-  
-  toggle_led();
-}
-
 // test program
-float program0[2] = {
+float program0[] = {
   25.0,
   26.0,
 };
@@ -386,7 +135,6 @@ float program2[] = {
   25.0,
 };
 
-
 // 1 ramp (up and down) of 10C
 float program3[] = {
   25.0,
@@ -431,7 +179,6 @@ float program3[] = {
   25.0,
 
 };
-
 
 // 2 ramps (up and down) of 10C
 float program4[] = {
@@ -510,7 +257,6 @@ float program4[] = {
   25.0,
   25.0,
 };
-
 
 // 3 ramps (up and down) of 10C
 float program5[] = {
@@ -623,7 +369,6 @@ float program5[] = {
   25.0,
   25.0,
 };
-
 
 // 7 ramps (up and down) of 10C
 float program6[] = {
@@ -871,8 +616,31 @@ float program6[] = {
   25.0,
   25.0,
   25.0,
-
 };
+
+// 1 step of 10C (up and down), 30min/plateau.
+float program7[] = {
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  35.0,
+  35.0,
+  35.0,
+  35.0,
+  35.0,
+  35.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+  25.0,
+};
+
+uint8_t pwm_bits = 9;
 
 void programmed_setup() {
 
@@ -903,15 +671,14 @@ void programmed_setup() {
 }
 
 
-void programmed_loop(float *program, uint16_t num_steps) {
-  static uint32_t step_interval = 4 * 60 * 1000ul;
+void programmed_loop(float *program, uint16_t num_steps, uint32_t step_interval) {
   static int16_t current_step = -1;
 
   int16_t desired_step = int16_t(floor((millis() - start) / double(step_interval)));
 
   // end of program.
   if (desired_step == num_steps) {
-    analogWrite(OUTPUT_PIN, 0);
+    analogWrite16(OUTPUT_PIN, pwm_bits, 0);
     Serial.println("debug: end of program.");
     while (true) { delay(1); }
   }
@@ -944,13 +711,8 @@ void programmed_loop(float *program, uint16_t num_steps) {
   }
   input = double(accumulator) / double(samples);
 
-  if (pid_running) {
-    while (myPID.Compute() == false) { continue; }
-    analogWrite(OUTPUT_PIN, output);
-  } else {
-    analogWrite(OUTPUT_PIN, 0);
-  }
-
+  while (myPID.Compute() == false) { continue; }
+  analogWrite16(OUTPUT_PIN, pwm_bits, output);
   
 //  Serial.println(next_loop_start - millis()); // print out how much time margin was left
   while (millis() <= next_loop_start) { delay(1); }
@@ -974,13 +736,13 @@ void programmed_loop(float *program, uint16_t num_steps) {
 }
 
 // Thanks to https://arduino.stackexchange.com/q/12718
-void setupPWM16() {
+void setupPWM16(uint8_t bits) {
     DDRB |= _BV(PB1) | _BV(PB2);        /* set pins as outputs */
     TCCR1A = _BV(COM1A1) | _BV(COM1B1)  /* non-inverting PWM */
         | _BV(WGM11);                   /* mode 14: fast PWM, TOP=ICR1 */
     TCCR1B = _BV(WGM13) | _BV(WGM12)
         | _BV(CS11);                    /* prescaler 1 */
-    ICR1 = 0xffff;                      /* TOP counter value (freeing OCR1A*/
+    ICR1 = (0x0100 << (bits - 8)) - 1;  /* TOP counter value (freeing OCR1A*/
 }
 /* Comments about the setup
 Changing ICR1 will effect the amount of bits of resolution.
@@ -995,26 +757,57 @@ Frequency[Hz}=CPU/(ICR1+1) where in this case CPU=16 MHz
 
 // Thanks to https://arduino.stackexchange.com/q/12718
 /* 16-bit version of analogWrite(). Works only on pins 9 and 10. */
-void _analogWrite16(uint8_t pin, uint16_t val) {
-    switch (pin) {
-        case  9: OCR1A = val; break;
-        case 10: OCR1B = val; break;
-    }
+// bits is the number of bits you set this PWM channel to use with setupPWM16().
+// val should be a float from 0 to 255.
+void analogWrite16(uint8_t pin, uint8_t bits, float val) {
+  analogWrite(pin, val);
+  
+//  uint16_t val16;
+//  if (bits > 8) {
+//    val16 = val * (0x2 << (bits - 8));
+//  } else {
+//    val16 = val;
+//  }
+//  switch (pin) {
+//    case  9:
+//    OCR1A = val16;
+//    break;
+//    
+//    case 10:
+//    OCR1B = val16;
+//    break;
+//    
+//    }
 }
+
 
 void setup() {
 //  interactive_setup();
   programmed_setup();
-//  setupPWM16();
+//  setupPWM16(pwm_bits);
 }
 
+// programs:
+// 0: test program
+// 1: 1 hour at 25C (the first two segments are silent) (14 steps)
+// 2: 1 ramp (up) of 10C (28 steps)
+// 3: 1 ramp (up and down) of 10C (38 steps)
+// 4: 2 ramps (up and down) of 10C (54 steps)
+// 5: 3 ramps (up and down) of 10C (70 steps)
+// 6: 7 ramps (up and down) of 10C
+// 7: 1 step of 10C (up and down), 30min plateaus.
+
 void loop () {
+  static uint32_t step_interval = 5 * 60 * 1000ul; // 5 minutes per step
+  
 //  interactive_loop();
-//  programmed_loop(program0, sizeof(program0) / sizeof(float));
-//  programmed_loop(program1, sizeof(program1) / sizeof(float));
-  programmed_loop(program2, sizeof(program2) / sizeof(float));
-//  programmed_loop(program3, sizeof(program3) / sizeof(float));
-//  programmed_loop(program4, sizeof(program4) / sizeof(float));
-//  programmed_loop(program5, sizeof(program5) / sizeof(float));
+//  programmed_loop(program0, sizeof(program0) / sizeof(float), step_interval);
+//  programmed_loop(program1, sizeof(program1) / sizeof(float), step_interval);
+//  programmed_loop(program2, sizeof(program2) / sizeof(float), step_interval);
+//  programmed_loop(program3, sizeof(program3) / sizeof(float), step_interval);
+//  programmed_loop(program4, sizeof(program4) / sizeof(float), step_interval);
+//  programmed_loop(program5, sizeof(program5) / sizeof(float), step_interval);
+//  programmed_loop(program6, sizeof(program6) / sizeof(float), step_interval);
+  programmed_loop(program7, sizeof(program7) / sizeof(float), step_interval);
 }
 

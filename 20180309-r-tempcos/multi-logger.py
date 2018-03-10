@@ -58,15 +58,18 @@ if __name__ == "__main__":
     last_ppm = None
     last_c = None
 
-    # store up 5 values to average as the base_r to calculate ppm.
+    # store up values to average as the base_r to calculate ppm.
     base_r = None
-    base_r_5 = []
+    base_r_skip = 33
+    base_r_count = 33
+    base_rs = []
 
     while True:
         if hp34401a.inWaiting():
             last_hp_value = float(hp34401a.readline().rstrip())
             if base_r is None:
-                base_r_5 = [last_hp_value] + base_r_5[:4]
+                print("appending %f" % last_hp_value)
+                base_rs.append(last_hp_value)
         elif arduino.inWaiting():
             line = arduino.readline()
             if line.startswith("debug:"):
@@ -75,8 +78,9 @@ if __name__ == "__main__":
                     print "current tempco: %0.2f ppm/K" % (last_ppm / (last_c - 25))
                 continue
             last_arduino_time = time.time()
-            if not base_r and len(base_r_5) == 5:
-                base_r = sum(base_r_5) / 5.0
+            if base_r is None and len(base_rs) >= base_r_skip + base_r_count:
+                base_rs = base_rs[-base_r_count:]
+                base_r = sum(base_rs) / float(base_r_count)
                 print "base_r:", base_r
             if last_hp_value and base_r:
                 oven_out.write(line)
