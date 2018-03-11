@@ -80,3 +80,10 @@ For this run, I've replaced the 10k 1% metal film resistor (likely at least 100p
 
 No improvement.
 
+## run 8
+
+Same as above, but I placed the Arduino oven controller in a 25C oven.
+
+![](run8/chart.png)
+
+Perhaps a slight improvement, to +/-0.5ppm/C?  Also, this looks somewhat more directly correlated to ambient temperature.  So the remaining drift is probably from my 34401A.

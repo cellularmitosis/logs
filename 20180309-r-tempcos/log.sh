@@ -6,7 +6,8 @@ test -n "${1}"
 dest="${1}"
 mkdir -p "${dest}"
 cd "${dest}"
-arduino=/dev/ttyACM0
+#arduino=/dev/ttyACM0
+arduino=/dev/ttyUSB1
 hp=/dev/ttyUSB0
 ../multi-logger.py $arduino $hp
 ../savgol.py tempco.csv
