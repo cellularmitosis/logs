@@ -69,3 +69,14 @@ The same 2k resistor + copper-wire resistor from run 5, but held at 25C for one 
 ![](run6/chart.png)
 
 Looks like +/-1ppm short-term drift in the measurement system.
+
+## run 7
+
+The 10k thermistor in this temperature-control circuit is linearized by placing it in series with a 10k 1% metal film resistor.  Thus, if the ambient temperature causes the 1% metal film resistor to drift, that will introduce error into the temperature control loop.
+
+For this run, I've replaced the 10k 1% metal film resistor (likely at least 100ppm/C) with a 10k metal foil resistor (less than 5ppm/C).
+
+![](run7/chart.png)
+
+No improvement.
+
