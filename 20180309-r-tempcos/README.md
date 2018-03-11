@@ -62,3 +62,10 @@ GenRad 1434-P **2k** resistance **card #1, resistor #3**, with hand-made copper 
 
 As expected, there is some thermal lag between the two resistors, but after the temperature stabilizes, the tempco appears to be beneath the drift of my measurement system (probably 0.5ppm/C).  Pretty neat!
 
+## run 6
+
+The same 2k resistor + copper-wire resistor from run 5, but held at 25C for one hour, to evaluate the stability of my measurement / temp-control system.
+
+![](run6/chart.png)
+
+Looks like +/-1ppm short-term drift in the measurement system.

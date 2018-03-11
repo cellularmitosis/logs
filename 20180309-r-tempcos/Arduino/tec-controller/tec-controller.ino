@@ -371,12 +371,12 @@ void loop () {
   
 //  interactive_loop();
 //  programmed_loop(program0, sizeof(program0) / sizeof(float), step_interval);
-//  programmed_loop(program1, sizeof(program1) / sizeof(float), step_interval);
+  programmed_loop(program1, sizeof(program1) / sizeof(float), step_interval);
 //  programmed_loop(program2, sizeof(program2) / sizeof(float), step_interval);
 //  programmed_loop(program3, sizeof(program3) / sizeof(float), step_interval);
 //  programmed_loop(program4, sizeof(program4) / sizeof(float), step_interval);
 //  programmed_loop(program5, sizeof(program5) / sizeof(float), step_interval);
 //  programmed_loop(program6, sizeof(program6) / sizeof(float), step_interval);
-  programmed_loop(program7, sizeof(program7) / sizeof(float), step_interval);
+//  programmed_loop(program7, sizeof(program7) / sizeof(float), step_interval);
 }
 
