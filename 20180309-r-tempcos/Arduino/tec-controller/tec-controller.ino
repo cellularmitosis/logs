@@ -367,15 +367,15 @@ void setup() {
 // 7: 1 step of 10C (up and down), 30min plateaus.
 
 void loop () {
-  static uint32_t step_interval = 5 * 60 * 1000ul; // 5 minutes per step
+  static uint32_t step_interval = 10 * 60 * 1000ul; // 10 minutes per step
   
 //  interactive_loop();
 //  programmed_loop(program0, sizeof(program0) / sizeof(float), step_interval);
 //  programmed_loop(program1, sizeof(program1) / sizeof(float), step_interval);
 //  programmed_loop(program2, sizeof(program2) / sizeof(float), step_interval);
-//  programmed_loop(program3, sizeof(program3) / sizeof(float), step_interval);
+  programmed_loop(program3, sizeof(program3) / sizeof(float), step_interval);
 //  programmed_loop(program4, sizeof(program4) / sizeof(float), step_interval);
-  programmed_loop(program5, sizeof(program5) / sizeof(float), step_interval);
+//  programmed_loop(program5, sizeof(program5) / sizeof(float), step_interval);
 //  programmed_loop(program6, sizeof(program6) / sizeof(float), step_interval);
 //  programmed_loop(program7, sizeof(program7) / sizeof(float), step_interval);
 }
