@@ -209,6 +209,20 @@ float program7[] = {
   25.0, 25.0, 25.0, 25.0, 25.0, 25.0,
 };
 
+// 100 steps of 10C.
+float program8[] = {
+  25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0,
+  25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0,
+  25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0,
+  25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0,
+  25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0,
+  25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0,
+  25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0,
+  25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0,
+  25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0,
+  25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0, 25.0, 35.0,
+};
+
 uint8_t pwm_bits = 9;
 
 void programmed_setup() {
@@ -240,7 +254,7 @@ void programmed_setup() {
 }
 
 
-void programmed_loop(float *program, uint16_t num_steps, uint32_t step_interval) {
+void programmed_loop(float *program, uint16_t num_steps, uint32_t step_interval, uint16_t num_silent) {
   static int16_t current_step = -1;
 
   int16_t desired_step = int16_t(floor((millis() - start) / double(step_interval)));
@@ -256,9 +270,10 @@ void programmed_loop(float *program, uint16_t num_steps, uint32_t step_interval)
     current_step = desired_step;
     float new_setpoint_c = program[current_step];
     setpoint = thermistor_c_to_adc(new_setpoint_c);
-    // verbose remains off during the first two programmed steps.
-    if (current_step < 2) {
-      Serial.println("debug: warm-up at 25C");
+    // verbose remains off during num_silent steps.
+    if (current_step < num_silent) {
+      Serial.print("debug: silent warm-up at ");
+      Serial.println(new_setpoint_c);
       verbose = false;
     } else {
       Serial.print("debug: setpoint = ");      
@@ -370,13 +385,14 @@ void loop () {
   static uint32_t step_interval = 5 * 60 * 1000ul; // 5 minutes per step
   
 //  interactive_loop();
-//  programmed_loop(program0, sizeof(program0) / sizeof(float), step_interval);
-//  programmed_loop(program1, sizeof(program1) / sizeof(float), step_interval);
-//  programmed_loop(program2, sizeof(program2) / sizeof(float), step_interval);
-//  programmed_loop(program3, sizeof(program3) / sizeof(float), step_interval);
-//  programmed_loop(program4, sizeof(program4) / sizeof(float), step_interval);
-  programmed_loop(program5, sizeof(program5) / sizeof(float), step_interval);
-//  programmed_loop(program6, sizeof(program6) / sizeof(float), step_interval);
-//  programmed_loop(program7, sizeof(program7) / sizeof(float), step_interval);
+//  programmed_loop(program0, sizeof(program0) / sizeof(float), step_interval, 2);
+//  programmed_loop(program1, sizeof(program1) / sizeof(float), step_interval, 2);
+//  programmed_loop(program2, sizeof(program2) / sizeof(float), step_interval, 2);
+//  programmed_loop(program3, sizeof(program3) / sizeof(float), step_interval, 2);
+//  programmed_loop(program4, sizeof(program4) / sizeof(float), step_interval, 2);
+//  programmed_loop(program5, sizeof(program5) / sizeof(float), step_interval, 2);
+//  programmed_loop(program6, sizeof(program6) / sizeof(float), step_interval, 2);
+//  programmed_loop(program7, sizeof(program7) / sizeof(float), step_interval, 2);
+  programmed_loop(program8, sizeof(program8) / sizeof(float),  30 * 60 * 1000ul, 0);
 }
 
