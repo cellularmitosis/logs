@@ -1,5 +1,6 @@
 #include "crc.h"
 #include "Si7021.h"
+#include "PID_v1.h"
 
 // --- Configurable parameters ---
 
@@ -7,14 +8,17 @@
 uint8_t oversample = 1;
 
 // PID constants
-double kp = 16.0;
-double ki = 0.25;
+double kp = 1000.0;
+double ki = 10.0;
 double kd = 0.0;
 uint16_t loop_period = 1000; // in ms
-float set_point_c = 29.0; // in celsius
+double setpoint_c = 29.0; // in celsius
 
 // exhaust fan
 int8_t fanPin = 4;
+
+int8_t ledPin = 13;
+
 
 // --- Global variables ---
 
@@ -25,55 +29,28 @@ double temperature_c;
 
 double pid_input;
 double pid_output = 0;
-double pid_setpoint;
-PID myPID(&pid_input, &pid_output, &pid_setpoint, kp, ki, kd, DIRECT);
+PID myPID(&pid_input, &pid_output, &setpoint_c, kp, ki, kd, REVERSE);
 
 uint32_t start = 0;
 uint32_t next_loop_start = 0;
 
 // --- Functions
 
-// Adapted from https://learn.adafruit.com/thermistor/using-a-thermistor
-float thermistor_adc_to_c(float thermistor) {
-  // convert the value to resistance
-  float therm_r = series_r / ((1023 / thermistor) - 1);
- 
-  float steinhart;
-  steinhart = therm_r / thermistor_nom;        // (R/Ro)
-  steinhart = log(steinhart);                  // ln(R/Ro)
-  steinhart /= b_coefficient;                  // 1/B * ln(R/Ro)
-  steinhart += 1.0 / (temp_nom + 273.15);      // + (1/To)
-  steinhart = 1.0 / steinhart;                 // Invert
-  steinhart -= 273.15;                         // convert to C
-  return steinhart;
-}
-
-float thermistor_c_to_adc(float c) {
-  float k = c + 273.15;
-  float steinhart = 1.0 / k;
-  steinhart -= 1.0 / (temp_nom + 273.15);
-  steinhart *= b_coefficient;
-  steinhart = exp(steinhart);
-  float therm_r = steinhart * thermistor_nom;
-  float adc = (therm_r / (series_r + therm_r)) * 1023;
-  return adc;
-}
-
 void toggle_led() {
-  if (digitalRead(LED_PIN) > 0) {
-    digitalWrite(LED_PIN, LOW);
+  if (digitalRead(ledPin) > 0) {
+    digitalWrite(ledPin, LOW);
   } else {
-    digitalWrite(LED_PIN, HIGH);    
+    digitalWrite(ledPin, HIGH);    
   }
 }
 
 void setup() {
+  pinMode(ledPin, OUTPUT);
   pinMode(fanPin, OUTPUT);
 
   // start the Si7021
   ambient.begin();
 
-  setpoint_pid = thermistor_c_to_adc(setpoint_c);
   myPID.SetSampleTime(loop_period);
   myPID.SetMode(AUTOMATIC);
 
@@ -81,7 +58,7 @@ void setup() {
 
   // indicate to the client that we are starting.  this allows them to flush old data out of the usb-serial pipe.
   delay(250);
-  Serial.println("STARTING");
+  Serial.println("\nSTARTING");
   
   // Print the CSV header.
   Serial.println("ambient_c,ambient_rh,duty_cycle,crc16");
@@ -95,21 +72,25 @@ void loop() {
   
   // toggle the LED to give a visual indication of the control loop activity
   toggle_led();
-
+  
   // calculate our duty cycle
   float duty_cycle = pid_output / 255.0;
+  if (duty_cycle > 1.0) { duty_cycle = 1.0; }
+  if (duty_cycle < 0.0) { duty_cycle = 0.0; }
   uint16_t on_time = loop_period * duty_cycle; // in milliseconds
   uint16_t off_time; loop_period - on_time; // in milliseconds
 
   // turn the fan off
   digitalWrite(fanPin, LOW);
 
-  while(millis() < next_loop_start + off_time) {
+  while(millis() < (next_loop_start - on_time)) {
     delay(1);
   }
 
   // turn the fan on
   digitalWrite(fanPin, HIGH);
+
+  // we assume that the fan will be on for long enough for the following to take place:
 
   // sample the temperature
   if (oversample > 1) { 
@@ -133,9 +114,9 @@ void loop() {
   char float_buf[16];
   dtostrf(temperature_c, 1, 3, float_buf);
   ptr += sprintf(ptr, "%s", float_buf);
-  dtostrf(humidity, 1, 3, rh_buf);
+  dtostrf(humidity, 1, 3, float_buf);
   ptr += sprintf(ptr, ",%s", float_buf);
-  dtostrf(duty_cycle, 1, 3, rh_buf);
+  dtostrf(duty_cycle, 1, 3, float_buf);
   ptr += sprintf(ptr, ",%s", float_buf);
   uint16_t crc = crc16(buf, strlen(buf));
   ptr = csv_append_hex_crc16(crc, ptr);
@@ -151,6 +132,6 @@ void loop() {
 
   // advance the loop timer
   while (millis() <= next_loop_start) { delay(1); }
-  while (millis() > next_loop_start) { next_loop_start += loop_period; }
+  while (next_loop_start < millis()) { next_loop_start += loop_period; }
 }
 
