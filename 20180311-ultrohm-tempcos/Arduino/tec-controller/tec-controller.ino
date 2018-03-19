@@ -295,10 +295,11 @@ void programmed_loop(float *program, uint16_t num_steps, uint32_t step_interval,
   }
   input = double(accumulator) / double(samples);
 
+//  Serial.println(next_loop_start - millis()); // print out how much time margin was left
+
   while (myPID.Compute() == false) { continue; }
   analogWrite16(OUTPUT_PIN, pwm_bits, output);
   
-//  Serial.println(next_loop_start - millis()); // print out how much time margin was left
   while (millis() <= next_loop_start) { delay(1); }
   while (millis() > next_loop_start) { next_loop_start += loop_period; }
 
