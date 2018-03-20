@@ -8,7 +8,7 @@
 double kp = 500.0;
 double ki = 30.0;
 double kd = 0.0;
-double setpoint_c = 25.0; // in celsius
+double setpoint_c = 25; // in celsius
 
 // how long it typically takes to read from the Si7012, in milliseconds;
 uint8_t temperature_read_delay = 202 + 2; // actually 201 or 202, but we add a small safety margin.
