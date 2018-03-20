@@ -46,6 +46,7 @@ a short test run with the larger box, to establish a low-temperature baseline.
 
 an overnight test run with the meter turned on, but the fan turned off (to see the temp rise).
 
+    ![](run6-1521530629/chart.png)
 
 ## run 7
 
@@ -53,11 +54,14 @@ PID set to 24C.
 
 couldn't quite make that.
 
+![](run7-1521553757/chart.png)
+
 
 ## run 8
 
 PID set to 24.5C.
 
+![](run8-1521556808/chart.png)
 
 ## run 9
 
