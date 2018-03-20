@@ -35,3 +35,15 @@ The first chart is the first 5000 data points (roughly the first half hour), and
 
 
 ![](run4-1521470249/chart2.png)
+
+
+## run 5
+
+a short test run with the larger box, to establish a low-temperature baseline.
+
+
+## run 6
+
+an overnight test run with the meter turned on, but the fan turned off (to see the temp rise).
+
+
