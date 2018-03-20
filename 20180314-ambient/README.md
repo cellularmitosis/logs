@@ -24,3 +24,14 @@ The fan was initially off, then turned on as 12V, then lowered to 4.5V (roughly 
 
 ![](run3-1521264354/chart.png)
 
+## run 4
+
+Same box, same fan, but with a PID loop controlling the duty cycle of the fan.  Even with only spending 15 minutes tuning the PID, and with the relatively noisy / coarse readins of the Si7021, it was easy to get +/-0.1C.
+
+The first chart is the first 5000 data points (roughly the first half hour), and the second chart represents over 12 hours of data.
+
+
+![](run4-1521470249/chart.png)
+
+
+![](run4-1521470249/chart2.png)
