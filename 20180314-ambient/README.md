@@ -46,7 +46,7 @@ a short test run with the larger box, to establish a low-temperature baseline.
 
 an overnight test run with the meter turned on, but the fan turned off (to see the temp rise).
 
-    ![](run6-1521530629/chart.png)
+![](run6-1521530629/chart.png)
 
 ## run 7
 
