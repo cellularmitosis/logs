@@ -34,6 +34,8 @@ Looks like there is still some hysteresis at each temperature cycle.  Perhaps fu
 
 Ultrohm 1k #1.
 
-repeat of run 2.
+I'll try sending the resistor a "square wave" of 25C to 35C steps and see how it responds.  Each plateau is 30 minutes (the square wave has a period of 60 minutes).
 
-![](run3/chart.png)
+![](run3/chart1.png)
+![](run3/chart2.png)
+![](run3/chart3.png)
