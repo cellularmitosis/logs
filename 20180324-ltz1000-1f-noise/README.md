@@ -20,6 +20,7 @@ Here is a table of all of the 60-second measurements:
 ## Equipment used
 
 - [LTZ1000ACH](http://cds.linear.com/docs/en/datasheet/1000afe.pdf) chips from various sources, socketed in a [PX-ref](https://github.com/pepaslabs/px-ref) board.
+- 18V NiMH battery (HPB18 for a Black and Decker drill, [amazon link](https://www.amazon.com/gp/product/B01FA3PEN4))
 - Pipelie 0.1Hz - 10Hz LNA (zlymex design) [[1](http://www.eevblog.com/forum/metrology/diy-low-frenquency-noise-meter/msg1005460/#msg1005460)] [[2](http://www.eevblog.com/forum/metrology/diy-low-frenquency-noise-meter/msg1401067/#msg1401067)] [[Manual](https://www.eevblog.com/forum/metrology/diy-low-frenquency-noise-meter/?action=dlattach;attach=385141)]
 - Rigol DS1102E oscilloscope
 - RG58 18-inch BNC cable (Jameco Valuepro, part [#102315](https://www.jameco.com/z/RG58U1-5-R-Cable-Assembly-RG58-U-1-5-BNC-to-BNC-50-Ohm_102315.html))
@@ -48,6 +49,27 @@ After waiting for the LNA to stabilize, the true noise floor could be measured.
 1/F noise has a certain recognizable characteristic to it.  If your output doesn't look like that (even when measuring the noise floor), you need to wait a bit longer.
 
 Reading through the [manual](https://www.eevblog.com/forum/metrology/diy-low-frenquency-noise-meter/?action=dlattach;attach=385141) is a good idea.
+
+
+## Pre-charging the capacitor
+
+If you connect your voltage reference to the LNA while the 1000uF input capacitor is discharged, the LNA appears as a 2k load on your voltage reference.  For a 7V reference, this means the LNA will initially draw 3.5mA from your reference.
+
+Here's what that looks like in LTSpice:
+
+![](1000uF-2k.png)
+
+I wasn't sure if drawing 3.5mA from an LTZ would damage it (or cause a new drift cycle to being), so I used a 4-pack of AA batteries to pre-charge the capacitor to about 6 volts, before connecting the LTZ.
+
+The procedure for swapping in a new LTZ was something like:
+- power-down the LTZ
+- disconnect the BNC-to-banana adapter from the LTZ circuit
+- swap in the new LTZ, power it up
+- touch the 6V batter pack leads to the banana plugs for ~3 seconds to pre-charge the capacitor to ~6V
+- re-connect the BNC-to-banana adapter to the LTZ circuit
+
+Intuitively, it doesn't seem like 3.5mA should be a problem for an LTZ.  A zener would simply divert current away from itself when presented with a load, which means the current through the LTZ actually drops by 3.5mA, which doesn't seem like it should be a problem.  I'll ask about this in the EEVBlog forum thread and see what they say.
+
 
 ## Setup 1
 
@@ -142,6 +164,8 @@ A bit of additional noise, even though the LTZ isn't powered up yet.
 ## Setup 6:
 
 The LTZ1000 is powered up and it's 1/F noise is measured.
+
+An 18V NiMH drill battery was used to power an LM7815, which powers the LTZ1000.
 
 LTZ1000 #3:
 - LTZ1000ACH
