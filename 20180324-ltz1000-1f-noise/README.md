@@ -149,15 +149,19 @@ LTZ1000 #3:
 - socketed
 
 60 seconds (5 seconds per division):
+
 ![](setup-6/NewFile0.png)
 
 24 seconds (2 seconds per division):
+
 ![](setup-6/NewFile1.png)
 
 6 seconds (500ms per division):
+
 ![](setup-6/NewFile2.png)
 
 2.4 seconds (200ms per division):
+
 ![](setup-6/NewFile3.png)
 
 
