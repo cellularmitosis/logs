@@ -14,7 +14,7 @@ Here is a table of all of the 60-second measurements:
 | #8 | 1750 | digikey | 0.968uV | 191nV |
 | #9 | 1750 | digikey | 1.04uV | 199nV |
 | #10 | 1750 | digikey | 0.776uV | 171nV |
-| #11 | 9811 | ebay | 0.720uV | 0.143uV |
+| #11 | 9811 | ebay | 0.720uV | 143nV |
 
 
 ## Equipment used
