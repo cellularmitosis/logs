@@ -39,7 +39,7 @@ The scope was configured to use a "100x" probe.  This means 1V on the scope is a
 
 Note that it can take up to 5 minutes (I measured about 4:30) for the 1000uF input capacitor of the LNA to stabilize.  When it does, you will see both LED indicators on the LNA glowing.  If one of the LED's is not lit, the amp is in saturation and will not produce correct readings.
 
-I got bitten by this when initially measuring the noise floor of the system while the LNA was still in saturation, and read a value which was much lower than the actual noise floor:
+I got bitten by this when initially measuring the noise floor of the system while the LNA was still in saturation, and read a false value which was much lower than the actual noise floor:
 
 ![](saturation.png)
 
