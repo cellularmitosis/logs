@@ -53,7 +53,11 @@ Reading through the [manual](https://www.eevblog.com/forum/metrology/diy-low-fre
 
 ## Pre-charging the capacitor
 
-If you connect your voltage reference to the LNA while the 1000uF input capacitor is discharged, the LNA appears as a 2k load on your voltage reference.  For a 7V reference, this means the LNA will initially draw 3.5mA from your reference.
+If you connect your voltage reference to the LNA while the 1000uF input capacitor is discharged, the LNA appears as a 2k load on your voltage reference.
+
+![](lna.png)
+
+For a 7V reference, this means the LNA will initially draw 3.5mA from your reference.
 
 Here's what that looks like in LTSpice:
 
