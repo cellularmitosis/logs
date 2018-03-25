@@ -32,7 +32,7 @@ Here is a table of all of the 60-second measurements:
 
 For all measurements, the 20MHz bandwidth limit was enabled.
 
-The scope was configured to use a "100x" probe.  This means 1V on the scope is actually 1uV measured, and 100mV on the scope is actually 100nV measured, etc.
+The scope was configured to use a "100x" probe.  This means **1V on the scope is actually 1uV measured, and 100mV on the scope is actually 100nV measured**, etc.
 
 
 ## A note on being patient
