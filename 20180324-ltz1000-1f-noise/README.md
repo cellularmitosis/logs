@@ -107,7 +107,7 @@ Noise floor:
 
 Arm-waving:
 
-![](setup-1/arm-wave.png)
+![](setup-2/arm-wave.png)
 
 This is a step in the right direction, but it looks like we need to shield the LNA itself.
 
