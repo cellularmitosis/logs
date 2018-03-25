@@ -47,6 +47,7 @@ After waiting for the LNA to stabilize, the true noise floor could be measured.
 
 1/F noise has a certain recognizable characteristic to it.  If your output doesn't look like that (even when measuring the noise floor), you need to wait a bit longer.
 
+Reading through the [manual](https://www.eevblog.com/forum/metrology/diy-low-frenquency-noise-meter/?action=dlattach;attach=385141) is a good idea.
 
 ## Setup 1
 
