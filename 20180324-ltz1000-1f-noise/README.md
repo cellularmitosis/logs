@@ -63,7 +63,7 @@ Here's what that looks like in LTSpice:
 
 ![](1000uF-2k.png)
 
-I wasn't sure if drawing 3.5mA from an LTZ would damage it (or cause a new drift cycle to being), so I used a 4-pack of AA batteries to pre-charge the capacitor to about 6 volts, before connecting the LTZ.
+I wasn't sure if drawing 3.5mA from an LTZ would damage it (or cause a new drift cycle to begin), so decided to play it safe and used a 4-pack of AA batteries to pre-charge the capacitor to about 6 volts, before connecting the LTZ.  Connecting the LTZ to the LNA will then draw less than 1mA from the LTZ while charging the capacitor.
 
 The procedure for swapping in a new LTZ was something like:
 - power-down the LTZ
