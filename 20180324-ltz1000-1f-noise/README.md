@@ -1,5 +1,22 @@
 I used a low-noise amplifier to measure the "1/F" noise (0.1Hz to 10Hz noise) of a few LTZ1000 voltage references.
 
+## Summary of results
+
+Here is a table of all of the 60-second measurements:
+
+| LTZ | date code | source | noise, p-p | noise, RMS |
+| --- | --- | --- | --- | --- | --- |
+| #2 | 0415 | ebay | 0.984uV | 208nV |
+| #3 | 1101 | ebay | 1.22uV | 252nV |
+| #5 | 1747 | digikey | 0.840uV | 176nV |
+| #6 | 1747 | digikey | 0.928uV | 194nV |
+| #7 | 1747 | digikey | 0.816uV | 168nV |
+| #8 | 1750 | digikey | 0.968uV | 191nV |
+| #9 | 1750 | digikey | 1.04uV | 199nV |
+| #10 | 1750 | digikey | 0.776uV | 171nV |
+| #11 | 9811 | ebay | 0.720uV | 0.143uV |
+
+
 ## Equipment used
 
 - [LTZ1000ACH](http://cds.linear.com/docs/en/datasheet/1000afe.pdf) chips from various sources, socketed in a [PX-ref](https://github.com/pepaslabs/px-ref) board.
@@ -65,6 +82,8 @@ Arm-waving:
 
 ![](setup-1/arm-wave.png)
 
+This is a step in the right direction, but it looks like we need to shield the LNA itself.
+
 
 ## Setup 3
 
@@ -83,7 +102,7 @@ Noise floor:
 
 ![](setup-3/noise-floor-2.png)
 
-The system is no longer sensitive to arm-waving.
+This is a much better result, and the system is no longer sensitive to arm-waving.
 
 
 ## Setup 4
@@ -98,6 +117,11 @@ Noise floor:
 
 ![](setup-4/noise-floor-2.png)
 
+96nV p-p, 22.6nV RMS.  This roughly lines up with what others on the forum are seeing (~100nV noise floor).
+
+This is the setup we will use for the rest of the measurements.
+
+
 
 ## Setup 5
 
@@ -111,6 +135,7 @@ Noise floor:
 
 ![](setup-5/noise-floor-2.png)
 
+A bit of additional noise, even though the LTZ isn't powered up yet.
 
 
 ## Setup 6:
@@ -123,12 +148,16 @@ LTZ1000 #3:
 - source: ebay (hifi-szjxic)
 - socketed
 
+60 seconds (5 seconds per division):
 ![](setup-6/NewFile0.png)
 
+24 seconds (2 seconds per division):
 ![](setup-6/NewFile1.png)
 
+6 seconds (500ms per division):
 ![](setup-6/NewFile2.png)
 
+2.4 seconds (200ms per division):
 ![](setup-6/NewFile3.png)
 
 
@@ -171,6 +200,7 @@ LTZ1000 #11:
 
 ![](setup-8/NewFile11.png)
 
+This LTZ seems particularly quiet.
 
 ## Setup 9:
 
