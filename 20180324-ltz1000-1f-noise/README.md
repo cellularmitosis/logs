@@ -5,7 +5,7 @@ I used a low-noise amplifier to measure the "1/F" noise (0.1Hz to 10Hz noise) of
 Here is a table of all of the 60-second measurements:
 
 | LTZ | date code | source | noise, p-p | noise, RMS |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | #2 | 0415 | ebay | 0.984uV | 208nV |
 | #3 | 1101 | ebay | 1.22uV | 252nV |
 | #5 | 1747 | digikey | 0.840uV | 176nV |
