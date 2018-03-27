@@ -6,17 +6,18 @@
 // --- Configurable parameters ---
 
 // PID constants
-double kp = 250.0;
-double ki = 30.0;
+double kp = 200.0;
+double ki = 10.0;
 double kd = 0.0;
 double setpoint_c = 25; // in celsius
 
 // how long it typically takes to read from the Si7012, in milliseconds;
 uint8_t temperature_read_delay = 202 + 2; // actually 201 or 202, but we add a small safety margin.
-uint16_t loop_period = temperature_read_delay * 4; // in ms
+uint16_t loop_period = temperature_read_delay * (9 + 1); // in ms
 
 // exhaust fan
-int8_t fanPin = 4;
+// this is connected to the base of a 2N7000 via a 150k / 1uF low-pass filter
+int8_t fanPin = 3;
 
 int8_t ledPin = 13;
 
@@ -37,6 +38,7 @@ double in_temperature_c;
 
 double pid_input;
 double pid_output = 0;
+uint8_t pwm_output = 0;
 PID myPID(&pid_input, &pid_output, &setpoint_c, kp, ki, kd, REVERSE);
 
 uint32_t start = 0;
@@ -86,59 +88,41 @@ void setup() {
 }
 
 void loop() {
+
+  // update our PWM output
+  pwm_output = map(pid_output, 0, 255, 90, 110);
+  analogWrite(fanPin, pwm_output);
   
   // toggle the LED to give a visual indication of the control loop activity
   toggle_led();
   
-  // calculate our duty cycle
-  float duty_cycle = pid_output / 255.0;
-  if (duty_cycle > 1.0) { duty_cycle = 1.0; }
-  if (duty_cycle < 0.0) { duty_cycle = 0.0; }
-  uint16_t on_time = loop_period * duty_cycle; // in milliseconds
-  uint16_t off_time; loop_period - on_time; // in milliseconds
+  double rh_accumulator = 0;
+  double c_accumulator = 0;
 
-//  double rh_accumulator = 0;
-//  double c_accumulator = 0;
-//  uint8_t sample_count = 0;
+  rh_accumulator += inside.getRH();
+  c_accumulator += inside.readTemp();
+  rh_accumulator += inside.getRH();
+  c_accumulator += inside.readTemp();
+  rh_accumulator += inside.getRH();
+  c_accumulator += inside.readTemp();
+  rh_accumulator += inside.getRH();
+  c_accumulator += inside.readTemp();
+  rh_accumulator += inside.getRH();
+  c_accumulator += inside.readTemp();
+  rh_accumulator += inside.getRH();
+  c_accumulator += inside.readTemp();
+  rh_accumulator += inside.getRH();
+  c_accumulator += inside.readTemp();
+  rh_accumulator += inside.getRH();
+  c_accumulator += inside.readTemp();
+  rh_accumulator += inside.getRH();
+  c_accumulator += inside.readTemp();
 
-  if (duty_cycle < 0.5) {
+  in_humidity = rh_accumulator / 9;
+  in_temperature_c = c_accumulator / 9;
 
-    // turn the fan off
-    digitalWrite(fanPin, LOW);
-
-    // read the temperature inside of the box.  this takes about 202ms per sensor.    
-    in_humidity = inside.getRH();
-    in_temperature_c = inside.readTemp();
-
-    out_humidity = outside.getRH();
-    out_temperature_c = outside.readTemp();
-
-    // busy-wait while the fan should be off
-    while(millis() < (next_loop_start - on_time)) {
-      delay(1);
-    }
-
-    // turn the fan on
-    digitalWrite(fanPin, HIGH);
-  
-  } else {
-
-    // turn the fan off
-    digitalWrite(fanPin, LOW);
-
-    // busy-wait while the fan should be off
-    while(millis() < (next_loop_start - on_time)) {
-      delay(1);
-    }
-
-    // turn the fan on
-    digitalWrite(fanPin, HIGH);
-
-    // read the temperature.  this takes about 202ms per sensor.
-    in_humidity = inside.getRH();
-    in_temperature_c = inside.readTemp();
-    
-  }
+  out_humidity = outside.getRH();
+  out_temperature_c = outside.readTemp();
     
   pid_input = in_temperature_c;
 
@@ -165,7 +149,7 @@ void loop() {
   dtostrf(in_temperature_c - setpoint_c, 1, 3, float_buf);
   ptr += sprintf(ptr, ",%s", float_buf);
   
-  dtostrf(duty_cycle, 1, 3, float_buf);
+  dtostrf(pid_output / 2.55, 1, 2, float_buf);
   ptr += sprintf(ptr, ",%s", float_buf);
     
   uint16_t crc = crc16(buf, strlen(buf));
