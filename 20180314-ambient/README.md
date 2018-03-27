@@ -84,4 +84,13 @@ still had two instances of the fan speed running away.  not sure what is causing
 
 lowering kp from 500 to 250.
 
+## run 12
+
+switching to a mosfet-based linear fan control.  pwm drives a low-pass filter to the gate of a 2N7000, which is in series with the fan.
+
+* kp 200
+* ki 10
+* kd 0
+
+internal Si7021 is 9x oversampled, external sampled once per loop, which is about a 2 second loop (takes about 202ms to read from the Si7021).
 
