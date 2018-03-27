@@ -6,6 +6,8 @@ now=`date +%s`
 subdir="${1}-${now}"
 mkdir -p ${subdir}
 
-./Si7021-logger.py /dev/ttyACM0 >> ${subdir}/ambient.csv &
+#device=/dev/ttyACM0
+device=/dev/tty.usbmodem1411
+./Si7021-logger.py $device >> ${subdir}/ambient.csv &
 echo $! >> ${subdir}/pids
 

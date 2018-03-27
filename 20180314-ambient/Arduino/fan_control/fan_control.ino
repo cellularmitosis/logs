@@ -1,8 +1,7 @@
 #include "crc.h"
 #include "Si7021.h"
 #include "PID_v1.h"
-#include "BME280I2C.h" // from https://github.com/finitespace/BME280
-#include <Wire.h>
+//#include <Wire.h>
 
 // --- Configurable parameters ---
 
@@ -23,24 +22,13 @@ int8_t ledPin = 13;
 
 // --- Global variables ---
 
-// the BME280 sensor (outside the box)
-//uint8_t out_sda_pin = 6;
-//uint8_t out_scl_pin = 5;
+// the Si7021 sensor (outside the box)
+uint8_t out_sda_pin = 6;
+uint8_t out_scl_pin = 5;
 SoftwareWire swire(out_sda_pin, out_scl_pin);
-BME280I2C::Settings settings(
-   BME280::OSR_X16,
-   BME280::OSR_X16,
-   BME280::OSR_X16,
-   BME280::Mode_Forced,
-   BME280::StandbyTime_1000ms,
-   BME280::Filter_16,
-   BME280::SpiEnable_False,
-   BME280I2C::I2CAddr_0x76
-);
-BME280I2C outside(settings, &wire);
-float out_temperature_c;
-float out_pressure;
+Weather outside(&swire);
 float out_humidity;
+float out_temperature_c;
 
 // the Si7021 sensor (inside the box)
 Weather inside;
@@ -71,8 +59,6 @@ void setup() {
   Serial.begin(9600); // 9600 8N1
   while(!Serial) {}
 
-  Wire.begin();
-
   // start the temperature sensors
 
   while(!outside.begin()) {
@@ -100,15 +86,6 @@ void setup() {
 }
 
 void loop() {
-
- uint32_t then = millis();
-    BME280::TempUnit tempUnit(BME280::TempUnit_Celsius);
-    BME280::PresUnit presUnit(BME280::PresUnit_Pa);
-    outside.read(out_pressure, out_temperature_c, out_humidity, tempUnit, presUnit);
- uint32_t now = millis();
- Serial.println(now - then);
- return;
-
   
   // toggle the LED to give a visual indication of the control loop activity
   toggle_led();
@@ -133,9 +110,8 @@ void loop() {
     in_humidity = inside.getRH();
     in_temperature_c = inside.readTemp();
 
-    BME280::TempUnit tempUnit(BME280::TempUnit_Celsius);
-    BME280::PresUnit presUnit(BME280::PresUnit_Pa);
-    outside.read(out_pressure, out_temperature_c, out_humidity, tempUnit, presUnit);
+    out_humidity = outside.getRH();
+    out_temperature_c = outside.readTemp();
 
     // busy-wait while the fan should be off
     while(millis() < (next_loop_start - on_time)) {
