@@ -63,7 +63,13 @@ PID set to 24.5C.
 
 ![](run8-1521556808/chart.png)
 
+
 ## run 9
+
+FIXME
+
+
+## run 10
 
 added another Si7021 to sense ambient temp outside of the box.
 
@@ -71,5 +77,5 @@ PID set to 25C.
 
 still had two instances of the fan speed running away.  not sure what is causing that.  at the same time, the values from the outside temp sensor are a perfectly flat line.  hrmm...
 
-![run9-1522111226/chart.png]()
+![run10-1522111226/chart.png]()
 
