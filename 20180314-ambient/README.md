@@ -94,3 +94,8 @@ switching to a mosfet-based linear fan control.  pwm drives a low-pass filter to
 
 internal Si7021 is 9x oversampled, external sampled once per loop, which is about a 2 second loop (takes about 202ms to read from the Si7021).
 
+## run 13
+
+* kp 200
+* ki 5
+* kd 0
