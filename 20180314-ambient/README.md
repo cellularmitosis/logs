@@ -79,3 +79,9 @@ still had two instances of the fan speed running away.  not sure what is causing
 
 ![run10-1522111226/chart.png]()
 
+
+## run 11
+
+lowering kp from 500 to 250.
+
+
