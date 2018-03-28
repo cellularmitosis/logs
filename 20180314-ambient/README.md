@@ -99,3 +99,11 @@ internal Si7021 is 9x oversampled, external sampled once per loop, which is abou
 * kp 200
 * ki 5
 * kd 0
+
+## run 14
+
+* kp 1000
+* ki 0
+* kd 0
+
+
