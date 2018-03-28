@@ -6,7 +6,7 @@
 // --- Configurable parameters ---
 
 // PID constants
-double kp = 1000.0;
+double kp = 4000.0;
 double ki = 0.0;
 double kd = 0.0;
 double setpoint_c = 25; // in celsius
