@@ -30,6 +30,10 @@ Same box, same fan, but with a PID loop controlling the duty cycle of the fan.  
 
 The first chart is the first 5000 data points (roughly the first half hour), and the second chart represents over 12 hours of data.
 
+edit: not 100% sure what the PID constants were.  according to git they were likely:
+- kp: 500
+- ki: 30
+- kd: 0
 
 ![](run4-1521470249/chart.png)
 
@@ -54,6 +58,12 @@ PID set to 24C.
 
 couldn't quite make that.
 
+edit: not 100% sure what the PID constants were.  according to git they were likely:
+- kp: 500
+- ki: 30
+- kd: 0
+
+
 ![](run7-1521553757/chart.png)
 
 
@@ -61,13 +71,22 @@ couldn't quite make that.
 
 PID set to 24.5C.
 
+edit: not 100% sure what the PID constants were.  according to git they were likely:
+- kp: 500
+- ki: 30
+- kd: 0
+
 ![](run8-1521556808/chart.png)
 
 
 ## run 9
 
-FIXME
+edit: not 100% sure what the PID constants were.  according to git they were likely:
+- kp: 500
+- ki: 30
+- kd: 0
 
+![](run9-1521587227/chart.png) 
 
 ## run 10
 
