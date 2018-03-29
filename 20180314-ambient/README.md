@@ -101,7 +101,11 @@ still had two instances of the fan speed running away.  not sure what is causing
 
 ## run 11
 
-lowering kp from 500 to 250.
+- kp: 250
+- ki: 30
+- kd: 0
+
+![](run11-1522128944/chart.png)
 
 ## run 12
 
