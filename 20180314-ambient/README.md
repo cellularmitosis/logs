@@ -96,7 +96,7 @@ PID set to 25C.
 
 still had two instances of the fan speed running away.  not sure what is causing that.  at the same time, the values from the outside temp sensor are a perfectly flat line.  hrmm...
 
-![run10-1522111226/chart.png]()
+![](run10-1522111226/chart.png)
 
 
 ## run 11
