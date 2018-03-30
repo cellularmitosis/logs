@@ -30,6 +30,10 @@ Same box, same fan, but with a PID loop controlling the duty cycle of the fan.  
 
 The first chart is the first 5000 data points (roughly the first half hour), and the second chart represents over 12 hours of data.
 
+edit: not 100% sure what the PID constants were.  according to git they were likely:
+- kp: 500
+- ki: 30
+- kd: 0
 
 ![](run4-1521470249/chart.png)
 
@@ -54,6 +58,12 @@ PID set to 24C.
 
 couldn't quite make that.
 
+edit: not 100% sure what the PID constants were.  according to git they were likely:
+- kp: 500
+- ki: 30
+- kd: 0
+
+
 ![](run7-1521553757/chart.png)
 
 
@@ -61,13 +71,22 @@ couldn't quite make that.
 
 PID set to 24.5C.
 
+edit: not 100% sure what the PID constants were.  according to git they were likely:
+- kp: 500
+- ki: 30
+- kd: 0
+
 ![](run8-1521556808/chart.png)
 
 
 ## run 9
 
-FIXME
+edit: not 100% sure what the PID constants were.  according to git they were likely:
+- kp: 500
+- ki: 30
+- kd: 0
 
+![](run9-1521587227/chart.png) 
 
 ## run 10
 
@@ -77,12 +96,16 @@ PID set to 25C.
 
 still had two instances of the fan speed running away.  not sure what is causing that.  at the same time, the values from the outside temp sensor are a perfectly flat line.  hrmm...
 
-![run10-1522111226/chart.png]()
+![](run10-1522111226/chart.png)
 
 
 ## run 11
 
-lowering kp from 500 to 250.
+- kp: 250
+- ki: 30
+- kd: 0
+
+![](run11-1522128944/chart.png)
 
 ## run 12
 
@@ -94,11 +117,20 @@ switching to a mosfet-based linear fan control.  pwm drives a low-pass filter to
 
 internal Si7021 is 9x oversampled, external sampled once per loop, which is about a 2 second loop (takes about 202ms to read from the Si7021).
 
+![](run12-1522136535/chart1.png)
+![](run12-1522136535/chart2.png)
+
+
 ## run 13
 
 * kp 200
 * ki 5
 * kd 0
+
+![](run13-1522161596/chart1.png)
+
+![](run13-1522161596/chart2.png)
+
 
 ## run 14
 
@@ -106,11 +138,16 @@ internal Si7021 is 9x oversampled, external sampled once per loop, which is abou
 * ki 0
 * kd 0
 
+![](run14-1522194978/chart.png)
+
+
 ## run 15
 
 * kp 2000
 * ki 0
 * kd 0
+
+![](run15-1522201679/chart.png)
 
 ## run 16
 
@@ -118,8 +155,17 @@ internal Si7021 is 9x oversampled, external sampled once per loop, which is abou
 * ki 0
 * kd 0
 
+![](run16-1522212234/chart.png)
+
 ## run 17
 
 * kp 500
 * ki 0
 * kd 0
+
+## run 18
+
+* kp 125
+* ki 1
+* kd 0
+
