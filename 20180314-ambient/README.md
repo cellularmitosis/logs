@@ -24,6 +24,49 @@ The fan was initially off, then turned on as 12V, then lowered to 4.5V (roughly 
 
 ![](run3-1521264354/chart.png)
 
+
+(note: the following runs have been re-ordered according to PID parameters)
+
+## run 16
+
+* kp 4000
+* ki 0
+* kd 0
+
+![](run16-1522212234/chart.png)
+
+
+## run 15
+
+* kp 2000
+* ki 0
+* kd 0
+
+![](run15-1522201679/chart.png)
+
+
+## run 14
+
+* kp 1000
+* ki 0
+* kd 0
+
+![](run14-1522194978/chart.png)
+
+
+## run 17
+
+* kp 500
+* ki 0
+* kd 0
+
+![](run17-1522280986/chart1.png)
+
+![](run17-1522280986/chart2.png)
+
+![](run17-1522280986/chart3.png)
+
+
 ## run 4
 
 Same box, same fan, but with a PID loop controlling the duty cycle of the fan.  Even with only spending 15 minutes tuning the PID, and with the relatively noisy / coarse readins of the Si7021, it was easy to get +/-0.1C.
@@ -51,6 +94,8 @@ a short test run with the larger box, to establish a low-temperature baseline.
 an overnight test run with the meter turned on, but the fan turned off (to see the temp rise).
 
 ![](run6-1521530629/chart.png)
+
+
 
 ## run 7
 
@@ -87,6 +132,7 @@ edit: not 100% sure what the PID constants were.  according to git they were lik
 - kd: 0
 
 ![](run9-1521587227/chart.png) 
+
 
 ## run 10
 
@@ -131,43 +177,6 @@ internal Si7021 is 9x oversampled, external sampled once per loop, which is abou
 
 ![](run13-1522161596/chart2.png)
 
-
-## run 14
-
-* kp 1000
-* ki 0
-* kd 0
-
-![](run14-1522194978/chart.png)
-
-
-## run 15
-
-* kp 2000
-* ki 0
-* kd 0
-
-![](run15-1522201679/chart.png)
-
-## run 16
-
-* kp 4000
-* ki 0
-* kd 0
-
-![](run16-1522212234/chart.png)
-
-## run 17
-
-* kp 500
-* ki 0
-* kd 0
-
-![](run17-1522280986/chart1.png)
-
-![](run17-1522280986/chart2.png)
-
-![](run17-1522280986/chart3.png)
 
 ## run 18
 
