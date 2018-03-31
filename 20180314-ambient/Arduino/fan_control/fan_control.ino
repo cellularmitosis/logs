@@ -7,7 +7,7 @@
 
 // PID constants
 double kp = 125.0;
-double ki = 1.0;
+double ki = 4.0;
 double kd = 0.0;
 double setpoint_c = 25; // in celsius
 
