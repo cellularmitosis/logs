@@ -203,3 +203,11 @@ internal Si7021 is 9x oversampled, external sampled once per loop, which is abou
 
 ![](run19-1522460862/chart3.png)
 
+## run 20
+
+* kp 125
+* ki 1
+* kd 0
+
+changed the sampling period: 14 internal samples and 1 external sample per loop (roughly a 3 second loop).
+

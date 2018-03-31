@@ -6,14 +6,16 @@
 // --- Configurable parameters ---
 
 // PID constants
-double kp = 500.0;
-double ki = 2.0;
+double kp = 125.0;
+double ki = 1.0;
 double kd = 0.0;
 double setpoint_c = 25; // in celsius
 
 // how long it typically takes to read from the Si7012, in milliseconds;
 uint8_t temperature_read_delay = 202 + 2; // actually 201 or 202, but we add a small safety margin.
-uint16_t loop_period = temperature_read_delay * (9 + 1); // in ms
+uint8_t inside_sample_count = 14;
+uint8_t outside_sample_count = 1;
+uint16_t loop_period = temperature_read_delay * (inside_sample_count + outside_sample_count); // in ms
 
 // exhaust fan
 // this is connected to the base of a 2N7000 via a 150k / 1uF low-pass filter
@@ -99,30 +101,21 @@ void loop() {
   double rh_accumulator = 0;
   double c_accumulator = 0;
 
-  rh_accumulator += inside.getRH();
-  c_accumulator += inside.readTemp();
-  rh_accumulator += inside.getRH();
-  c_accumulator += inside.readTemp();
-  rh_accumulator += inside.getRH();
-  c_accumulator += inside.readTemp();
-  rh_accumulator += inside.getRH();
-  c_accumulator += inside.readTemp();
-  rh_accumulator += inside.getRH();
-  c_accumulator += inside.readTemp();
-  rh_accumulator += inside.getRH();
-  c_accumulator += inside.readTemp();
-  rh_accumulator += inside.getRH();
-  c_accumulator += inside.readTemp();
-  rh_accumulator += inside.getRH();
-  c_accumulator += inside.readTemp();
-  rh_accumulator += inside.getRH();
-  c_accumulator += inside.readTemp();
+  for (int i=0; i < inside_sample_count; i++) {
+    rh_accumulator += inside.getRH();
+    c_accumulator += inside.readTemp();    
+  }
+  in_humidity = rh_accumulator / inside_sample_count;
+  in_temperature_c = c_accumulator / inside_sample_count;
 
-  in_humidity = rh_accumulator / 9;
-  in_temperature_c = c_accumulator / 9;
-
-  out_humidity = outside.getRH();
-  out_temperature_c = outside.readTemp();
+  rh_accumulator = 0;
+  c_accumulator = 0;
+  for (int i=0; i < outside_sample_count; i++) {
+    rh_accumulator += outside.getRH();
+    c_accumulator += outside.readTemp();    
+  }
+  out_humidity = rh_accumulator / outside_sample_count;
+  out_temperature_c = c_accumulator / outside_sample_count;
     
   pid_input = in_temperature_c;
 
