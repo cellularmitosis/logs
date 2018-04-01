@@ -217,5 +217,27 @@ changed the sampling period: 14 internal samples and 1 external sample per loop 
 * kp 125
 * ki 4
 * kd 0
+* set-point: 25C
 
+
+## run 22
+
+from the previous runs, it looks like this small fan can't keep up at the temperature high-point of each cycle.
+I'll raise the set-point by a half degree and see if that helps.
+
+note: the previous runs were at 25C.
+
+* kp 125
+* ki 4
+* kd 0
+* set-point: 25.5C
+
+## run 23
+
+messing around with the minimum fan speed (I noticed it stalled on 90).  setting it to minimum of 94.
+
+* kp 125
+* ki 4
+* kd 0
+* set-point: 25.5C
 

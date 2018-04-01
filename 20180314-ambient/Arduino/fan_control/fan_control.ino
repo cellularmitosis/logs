@@ -9,7 +9,7 @@
 double kp = 125.0;
 double ki = 4.0;
 double kd = 0.0;
-double setpoint_c = 25; // in celsius
+double setpoint_c = 25.5; // in celsius
 
 // how long it typically takes to read from the Si7012, in milliseconds;
 uint8_t temperature_read_delay = 202 + 2; // actually 201 or 202, but we add a small safety margin.
@@ -92,7 +92,7 @@ void setup() {
 void loop() {
 
   // update our PWM output
-  pwm_output = map(pid_output, 0, 255, 90, 110);
+  pwm_output = map(pid_output, 0, 255, 94, 110);
   analogWrite(fanPin, pwm_output);
   
   // toggle the LED to give a visual indication of the control loop activity
