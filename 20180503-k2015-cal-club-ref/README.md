@@ -10,8 +10,6 @@ Keithley 2015 with apartment thermostat set to 66F.
 
 ![](run2/chart.png)
 
-## run 3
+Combined tempco chart of the above two runs:
 
-HP 34401A with apartment thermostat set to 67F.
-
-hmm, couldn't get my serial cable working.  dammit!
+![](tempco-chart.png)
