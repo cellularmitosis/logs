@@ -52,25 +52,16 @@ if __name__ == "__main__":
     csv.write("timestamp,v,temp_c\n")
     csv.flush()
 
-    setup_cmds = [
-        "*RST",
-        ":INITiate:CONTinuous ON",
-        ":ABORt",
-        ":SYSTem:AZERo:STATe ON",
-        ":CONFigure:VOLTage:DC",
-        ":SENSe:VOLTage:DC:RANGe 10",
-        ":SENSe:VOLTage:DC:NPLC 10",
-        ":SENSe:VOLTage:DC:AVERage:TCONTrol REPeat",
-        ":SENSe:VOLTage:DC:AVERage:COUNt 10",
-        ":SENSe:VOLTage:DC:AVERage:STATe ON",
-    ]
-
-    loop_cmds = [
-        ":READ?",
-    ]
-
-    for cmd in setup_cmds:
-        dmm.write(cmd + "\n")
+    # some USB-serial chips seems to buffer up a certain amount of outgoing bytes if there is no
+    # listener to recieve them.  thus, when we first run this script, we will get an initial
+    # flood of queued readings.  throw those away.
+    then = time.time()
+    dmm.readline()
+    now = time.time()
+    while now - then < 0.2:
+        then = time.time()
+        dmm.readline()
+        now = time.time()
 
     last_temp_c = None
 
@@ -81,14 +72,12 @@ if __name__ == "__main__":
             line = arduino.readline()
             last_temp_c = float(line.rstrip().split(",")[0])
 
-        for cmd in loop_cmds:
-            dmm.write(cmd + "\n")
-        line = dmm.readline()
-        v = float(line.rstrip())
+        if dmm.inWaiting():
+            dmm_value = float(dmm.readline().rstrip())
+            if last_temp_c is None:
+                time.sleep(0.01)
+                continue
+            csv.write("%s,%s,%s\n" % (time.time(), dmm_value, last_temp_c))
+            csv.flush()
 
-        if last_temp_c is None:
-            continue
-
-        csv.write("%s,%s,%s\n" % (time.time(), v, last_temp_c))
-        csv.flush()
         time.sleep(0.01)
