@@ -26,4 +26,8 @@ whoa, stable down to 1mK.  let's repeat that with more resolution.
 
 repeated with more output resolution.
 
+## run 6
+
+bare thermistor dangling outside of box.
+
 
