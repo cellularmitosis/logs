@@ -81,7 +81,7 @@ void loop() {
 
   // update our PWM output
   pwm_output = map(pid_output, 0, 255, lower_pwm_limit, upper_pwm_limit);
-  pwm_output = 139; // STOPSHIP
+  pwm_output = 237; // STOPSHIP
   analogWrite(fan_pin, pwm_output);
     
   uint16_t samples = 8192;
@@ -99,7 +99,7 @@ void loop() {
   char *ptr = buf;
   char float_buf[16];
   
-  dtostrf(temp_c, 1, 3, float_buf);
+  dtostrf(temp_c, 1, 6, float_buf);
   ptr += sprintf(ptr, "%s", float_buf);
   
 //  dtostrf(setpoint_c, 1, 3, float_buf);
