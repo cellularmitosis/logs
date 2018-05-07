@@ -54,3 +54,5 @@ thermistor wrapped in a cotton ball, dangling outside of box.
 
 ![](run7/chart.png)
 
+I then removed the cotton ball and added it back again.
+
