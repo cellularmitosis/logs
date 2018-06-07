@@ -241,3 +241,12 @@ messing around with the minimum fan speed (I noticed it stalled on 90).  setting
 * kd 0
 * set-point: 25.5C
 
+
+## run 24
+
+* kp 125
+* ki 4
+* kd 0
+* set-point: 25.1C
+* min fan speed 93
+
