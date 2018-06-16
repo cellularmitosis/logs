@@ -4,7 +4,8 @@ Keithley 2015 with apartment thermostat set to 70F.
 
 Running off of a linear supply, using the 7812.
 
-![](run1/chart.png)
+![](run1/chart1.png)
+
 
 ## run 2
 
@@ -34,6 +35,10 @@ px-ref is 15v feeding the 7812.
 
 kx-ref is positive lead, px-ref is negative lead.
 
+![](run4/chart2.png)
+![](run4/chart3.png)
+
+
 ## run 5
 
 Keithley 2015 with apartment thermostat set to 70F.
@@ -42,4 +47,8 @@ Running off of NiMH drill battery, using the 7812.
 
 In styrofoam ice chest with a tupperware container of hot water.
 
+
+![](run5/chart5.png)
+![](run5/chart6.png)
+![](run5/chart7.png)
 
