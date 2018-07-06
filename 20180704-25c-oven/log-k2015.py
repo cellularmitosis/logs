@@ -5,6 +5,14 @@ import serial
 import time
 import os
 
+# thanks to https://learn.adafruit.com/thermistor/circuitpython
+def steinhart_temperature_C(r, Ro=10000.0, To=25.0, beta=3892.0):
+    import math
+    steinhart = math.log(r / Ro) / beta      # log(R/Ro) / beta
+    steinhart += 1.0 / (To + 273.15)         # log(R/Ro) / beta + 1/To
+    steinhart = (1.0 / steinhart) - 273.15   # Invert, convert to C
+    return steinhart
+
 if __name__ == "__main__":
 
     if len(sys.argv) < 3:
@@ -50,7 +58,7 @@ if __name__ == "__main__":
         sys.stderr.write("Error: refusing to clobber existing log.csv!\n")
         sys.exit(1)
     csv = open("log.csv", "w")
-    csv.write("timestamp,v,temp_c\n")
+    csv.write("timestamp,resistance,oven_c,ambient_c\n")
     csv.flush()
 
     setup_cmds = [
@@ -58,9 +66,11 @@ if __name__ == "__main__":
         ":INITiate:CONTinuous ON",
         ":ABORt",
         ":SYSTem:AZERo:STATe ON",
-        ":CONFigure:VOLTage:DC",
-       ":SENSe:VOLTage:DC:RANGe 10",
-        ":SENSe:VOLTage:DC:NPLC 4",
+        # ":CONFigure:VOLTage:DC",
+        # ":SENSe:VOLTage:DC:RANGe 10",
+        # ":SENSe:VOLTage:DC:NPLC 4",
+        ":CONFigure:RESistance",
+        ":SENSe:RESistance:NPLC 10",
         # ":SENSe:VOLTage:DC:AVERage:TCONTrol REPeat",
         ":SENSe:VOLTage:DC:AVERage:TCONTrol MOVing",
         ":SENSe:VOLTage:DC:AVERage:COUNt 10",
@@ -92,5 +102,5 @@ if __name__ == "__main__":
             time.sleep(0.01)
             continue
 
-        csv.write("%s,%s,%s\n" % (time.time(), dmm_value, last_temp_c))
+        csv.write("%s,%s,%0.6f,%s\n" % (time.time(), dmm_value, steinhart_temperature_C(dmm_value), last_temp_c))
         csv.flush()
