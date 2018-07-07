@@ -32,3 +32,6 @@ turned on the power to the LM723 circuit.
 
 hmm, it turned on and just railed to the current-limited output (140mA) the entire time, shooting way past the set-point.
 
+## run 6
+
+attempted to reverse which position the thermistor was in (lower half of non-inverting divider, rather than upper half of inverting divider), but ran into the same problems (the circuit keeps heating past the set-point).
