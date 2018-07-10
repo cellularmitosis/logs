@@ -6,6 +6,7 @@ soldered a 20k in parallel with the 10k below the thermistor, to ajust the set-p
 
 measuring the difference between the inverting and non-inverting op amp inputs, using a Keithley 2015.
 
+
 ## run 2
 
 removing 20k parallel resistor.
@@ -26,15 +27,18 @@ I am now logging the ambient temperature (using an Si7021) and the temperature o
 
 Initial log will simply be logging the off-state behavior of the device.
 
+
 ## run 4
 
 turned on the power to the LM723 circuit.
 
 hmm, it turned on and just railed to the current-limited output (140mA) the entire time, shooting way past the set-point.
 
+
 ## run 6
 
 attempted to reverse which position the thermistor was in (lower half of non-inverting divider, rather than upper half of inverting divider), but ran into the same problems (the circuit keeps heating past the set-point).
+
 
 ## run 7
 
@@ -42,6 +46,7 @@ created a similar circuit based on an OP07 op amp.
 
 unfortunately I neglected to realize that the opamp output can't swing to the negative rail, which means it
 can't shut off the MJE3055 entirely.  it looks like the closest it can get is about 1.4V.
+
 
 ## run 8, 9
 
@@ -89,3 +94,73 @@ looks like the 100k/100k divider with 1uF+10M compensation is the way to go.
 pointed a fan at both thermistors and alternated measuring either one.
 
 The thermistors should be at the same temperature, so this will reveal their offset.
+
+
+## run 11
+
+placed a 120k in parallel with the 10k resistor to adjust the temperature set-point closer to 25C.
+
+it looks like this is still a bit under-damped.
+
+## run 12
+
+starting from cold.  trying 2uF+10M this time.
+
+## run 13
+
+starting from cold.  trying 4uF+10M this time.
+
+
+## run 14
+
+revisiting the LM723 circuit with corrections.
+
+- 10k/10k divider, 100k + 47uF-47uF compensation
+- 100k/100k divider, 100k + 47uF-47uF compensation
+  - stable
+- 100k/100k divider, 100k + 10uF-10uF compensation
+  - unstable
+- 100k/100k divider, 1M + 10uF-10uF compensation
+  - eventually stable, very ringy
+- 100k/100k divider, 10M + 10uF-10uF compensation
+  - unstable
+- 1M/1M divider, 10M + 10uF-10uF compensation
+  - unstable (stuck on heat?)
+- 1M/1M divider, 1M + 10uF-10uF compensation
+  - too slow (huge overshoot)
+- 1M/1M divider, 1M + 1uF compensation
+  - oh, now I see, the compensation network is affecting the set-point (pulling it up to ~27C)
+- 100k/100k divider, 1M + 9uF ceramics compensation
+  - 4.7R current shunt (140mA limit), compensation connected to shunt
+  - this is very well damped
+
+
+## run 15
+
+continuation of run 14
+
+- 100k/100k divider, 1M + 9uF ceramics compensation
+  - 2.2R + 2.2R current shunt, current limit in middle tap (300mA limit), compensation connected to top of shunt
+  - this is very well damped
+
+
+## run 16
+
+continuation of run 15
+
+- 100k/100k divider, 1M + 1uF ceramic compensation
+  - 2.2R + 2.2R current shunt, current limit in middle tap (300mA limit), compensation connected to top of shunt
+
+
+## run 17, 18
+
+start-up and overnight run of the lm723 oven.
+
+## run 19
+
+thermistor in a large styrofoam drinking cup filled with water.
+
+## run 20
+
+thermistor in a styrofoam beer cooler filled with water.
+
