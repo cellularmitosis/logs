@@ -44,7 +44,7 @@
 
 same settings, part 2
 
-![](log-10-pid-kp2-ki0_02-kd5-ravg16.png)
+![](log-10.2-pid-kp2-ki0_02-kd5-ravg16.png)
 
 ## log-11-pid-kp2-ki0_02-kd5-ravg16-cotton.csv
 
