@@ -34,11 +34,11 @@
 
 ## log-9-pid-kp2-ki0_01-kd10-ravg16.csv
 
-TODO
+![](log-9-pid-kp2-ki0_01-kd10-ravg16.png)
 
 ## log-10-pid-kp2-ki0_02-kd5-ravg16.csv
 
-TODO
+![](log-10-pid-kp2-ki0_02-kd5-ravg16.csv)
 
 ## log-10.2-pid-kp2-ki0_02-kd5-ravg16.csv
 
@@ -54,40 +54,44 @@ same settings, added a cotton ball around both sensors.
 
 same, extended run
 
+![](log-11.2-pid-kp2-ki0_02-kd5-ravg16-cotton.png)
+
 ## log-12-pid-kp16-ravg8.csv
 
 removed cotton, trying for pure Kp oscillation point.
 
 also set tau to zero (aws 0.1)
 
+![](log-12-pid-kp16-ravg8.png)
+
 ## log-13-pid-kp32-ravg8.csv
 
-TODO
+![](log-13-pid-kp32-ravg8.png)
 
 ## log-14-pid-kp64-ravg8.csv
 
-TODO
+![](log-14-pid-kp64-ravg8.png)
 
 ## log-15-pid-kp16-kd1-ravg8.csv
 
-TODO
+![](log-15-pid-kp16-kd1-ravg8.png)
 
 ## log-16-pid-kp16-kd1-ravg8-32c.csv
 
-TODO
+![](log-16-pid-kp16-kd1-ravg8-32c.png)
 
 ## log-17-pid-kp16-kd1-ravg8-32c-tau0.1.csv
 
-TODO
+![](log-17-pid-kp16-kd1-ravg8-32c-tau0.1.png)
 
 ## log-18-pid-kp16-kd2-ravg8-32c-tau0.1.csv
 
-TODO
+![](log-18-pid-kp16-kd2-ravg8-32c-tau0.1.png)
 
 ## log-19-pid-kp16-kd4-ravg8-32c-tau0.1.csv
 
-TODO
+![](log-19-pid-kp16-kd4-ravg8-32c-tau0.1.png)
 
 ## log-20-pid-kp16-kd8-ravg8-32c-tau0.1.csv
 
-TODO
+![](log-20-pid-kp16-kd8-ravg8-32c-tau0.1.png)
