@@ -38,7 +38,7 @@
 
 ## log-10-pid-kp2-ki0_02-kd5-ravg16.csv
 
-![](log-10-pid-kp2-ki0_02-kd5-ravg16.csv)
+![](log-10-pid-kp2-ki0_02-kd5-ravg16.png)
 
 ## log-10.2-pid-kp2-ki0_02-kd5-ravg16.csv
 
