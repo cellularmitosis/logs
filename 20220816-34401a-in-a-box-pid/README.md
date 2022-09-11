@@ -95,3 +95,7 @@ also set tau to zero (aws 0.1)
 ## log-20-pid-kp16-kd8-ravg8-32c-tau0.1.csv
 
 ![](log-20-pid-kp16-kd8-ravg8-32c-tau0.1.png)
+
+## Caveats
+
+note: it appears that at some point the mosfet detached from the heatsink, so I'm not sure how much of the above results are tainted.
